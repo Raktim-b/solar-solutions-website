@@ -1,0 +1,76 @@
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { navLinks } from "../../../Services/JSON/Navbar";
+import PrimaryBtn from "../Buttons/PrimaryBtn";
+import Hamburger from "../Buttons/Hamburger";
+
+function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  // control body scroll
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+      document.documentElement.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+      document.documentElement.classList.remove("overflow-hidden");
+    }
+  }, [open]);
+
+  return (
+    <header className="py-5">
+      <div className="max-w-330 w-full mx-auto px-3.5">
+        <nav className="flex items-center">
+          {/* Logo */}
+          <div className="nav-logo max-w-24">
+            <Link to="/" className="w-full h-full">
+              <img
+                src="/Images/Logo.png"
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </Link>
+          </div>
+
+          {/* Menu */}
+          <div
+            className={`flex flex-col sm:flex-row justify-normal sm:justify-between bg-white min-h-screen sm:min-h-auto w-[50%] sm:w-auto items-start sm:items-center flex-1 fixed sm:static right-0 top-30.75 sm:py-0 px-10 sm:px-0 transition-transform duration-300 ${
+              open ? "translate-x-0" : "translate-x-full"
+            } sm:translate-x-0`}
+          >
+            <ul className="flex flex-col sm:flex-row items-start sm:items-center mx-0 sm:mx-auto">
+              {navLinks.map(({ id, name, path }) => (
+                <li
+                  key={id}
+                  className="mb-4.5 sm:mb-0 mr-0 sm:mr-5.5 md:mr-7.5 last:mr-0"
+                >
+                  <NavLink
+                    to={path}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `text-3xl sm:text-[16px] md:text-lg font-medium transition-colors duration-300 ${
+                        isActive ? "text-[#429200]" : "text-[#242424]"
+                      } hover:text-[#429200]`
+                    }
+                  >
+                    {name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            <div className="nav-btn flex mt-4.5 sm:mt-0">
+              <PrimaryBtn />
+            </div>
+          </div>
+
+          {/* Hamburger */}
+          <Hamburger open={open} setOpen={setOpen} />
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+export default Navbar;

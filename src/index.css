@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  background: #fff;
+  font-family: "Figtree", sans-serif;
+}
+
+/* Header */
+#toggler-btn.tilted .toggle-line1 {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(45deg) translate(6px, 6px);
+}
+#toggler-btn.tilted .toggle-line2 {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(-45deg) translate(-4px, -6px);
+}

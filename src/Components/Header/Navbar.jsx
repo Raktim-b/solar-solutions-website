@@ -17,7 +17,7 @@ const Navbar = () => {
     }
   }, [open]);
   return (
-    <header className="py-5">
+    <header className="py-2.5">
       <div className="max-w-330 w-full mx-auto px-3.5">
         <nav className="flex items-center justify-between sm:justify-normal">
           <div className="nav-logo max-w-24">

@@ -34,8 +34,8 @@ const Navbar = () => {
             className={`nav-collapsed z-40 flex flex-col sm:flex-row justify-normal sm:justify-between
 bg-white/20 backdrop-blur-xl border-l border-white/30 shadow-xl
 sm:bg-transparent sm:backdrop-blur-none sm:border-0 sm:shadow-none
-min-h-screen sm:min-h-auto w-[60%] sm:w-auto items-start sm:items-center
-flex-1 fixed sm:static right-0 top-0 py-30 sm:py-0 px-10 sm:px-0
+min-h-screen sm:min-h-auto w-[70%] sm:w-auto items-start sm:items-center
+flex-1 fixed sm:static right-0 top-0 py-30 sm:py-0 pr-10 pl-20 sm:pl-0 sm:pr-0
 transition-transform duration-300
 ${open ? "translate-x-0" : "translate-x-full"} sm:translate-x-0`}
           >

@@ -1,9 +1,10 @@
 import React from "react";
-import Navbar from "../assets/Components/Header/Navbar";
-import { Outlet } from "react-router-dom";
-import Footer from "../assets/Components/Footer/Footer";
 
-function Wrapper() {
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Header/Navbar";
+import Footer from "../Components/Footer/Footer";
+
+const Wrapper = () => {
   return (
     <div>
       <Navbar />
@@ -11,6 +12,6 @@ function Wrapper() {
       <Footer />
     </div>
   );
-}
+};
 
 export default Wrapper;

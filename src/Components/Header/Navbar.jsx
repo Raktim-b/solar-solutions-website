@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { navLinks } from "../../../Services/JSON/Navbar";
+
 import PrimaryBtn from "../Buttons/PrimaryBtn";
 import Hamburger from "../Buttons/Hamburger";
+import { navLinks } from "../../Services/JSON/Navbar";
 
-function Navbar() {
+const Navbar = () => {
   const [open, setOpen] = useState(false);
-
-  // control body scroll
   useEffect(() => {
     if (open) {
       document.body.classList.add("overflow-hidden");
@@ -17,11 +16,10 @@ function Navbar() {
       document.documentElement.classList.remove("overflow-hidden");
     }
   }, [open]);
-
   return (
     <header className="py-5">
       <div className="max-w-330 w-full mx-auto px-3.5">
-        <nav className="flex items-center">
+        <nav className="flex items-center justify-between sm:justify-normal">
           {/* Logo */}
           <div className="nav-logo max-w-24">
             <Link to="/" className="w-full h-full">
@@ -71,6 +69,6 @@ function Navbar() {
       </div>
     </header>
   );
-}
+};
 
 export default Navbar;

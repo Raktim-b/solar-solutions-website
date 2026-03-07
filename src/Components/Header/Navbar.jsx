@@ -49,7 +49,7 @@ ${open ? "translate-x-0" : "translate-x-full"} sm:translate-x-0`}
                     to={path}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `text-3xl sm:text-[16px] md:text-lg font-medium transition-colors duration-300 ${
+                      `text-3xl sm:text-[16px] md:text-lg font-semibold sm:font-medium transition-colors duration-300 ${
                         isActive ? "text-[#429200]" : "text-[#242424]"
                       } hover:text-[#429200]`
                     }

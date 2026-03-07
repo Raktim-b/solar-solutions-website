@@ -1,6 +1,25 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@font-face {
+  font-family: "Figtree";
+  src:
+    url("/Font/figtree_5.2.10/webfonts/figtree-latin-400-normal.woff2")
+      format("woff2"),
+    url("/Font/figtree_5.2.10/webfonts/figtree-latin-400-normal.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: "Figtree";
+  src:
+    url("/Font/figtree_5.2.10/webfonts/figtree-latin-700-normal.woff2")
+      format("woff2"),
+    url("/Font/figtree_5.2.10/webfonts/figtree-latin-700-normal.woff")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
 body {
   background: #fff;
   font-family: "Figtree", sans-serif;

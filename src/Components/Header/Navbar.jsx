@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import PrimaryBtn from "../Buttons/PrimaryBtn";
@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="nav-logo max-w-24">
             <Link to="/" className="w-full h-full">
               <img
-                src="/Images/Logo.png"
+                src={"Images/Logo.png"}
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -61,7 +61,7 @@ ${open ? "translate-x-0" : "translate-x-full"} sm:translate-x-0`}
             </ul>
 
             <div className="nav-btn flex mt-3 sm:mt-0">
-              <PrimaryBtn />
+              <PrimaryBtn name="Free Call" />
             </div>
           </div>
 

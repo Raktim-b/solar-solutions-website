@@ -20,7 +20,6 @@ const Navbar = () => {
     <header className="py-5">
       <div className="max-w-330 w-full mx-auto px-3.5">
         <nav className="flex items-center justify-between sm:justify-normal">
-          {/* Logo */}
           <div className="nav-logo max-w-24">
             <Link to="/" className="w-full h-full">
               <img
@@ -31,11 +30,13 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Menu */}
           <div
-            className={`flex flex-col sm:flex-row justify-normal sm:justify-between bg-white min-h-screen sm:min-h-auto w-[50%] sm:w-auto items-start sm:items-center flex-1 fixed sm:static right-0 top-30.75 sm:py-0 px-10 sm:px-0 transition-transform duration-300 ${
-              open ? "translate-x-0" : "translate-x-full"
-            } sm:translate-x-0`}
+            className={`nav-collapsed z-40 flex flex-col sm:flex-row justify-normal sm:justify-between 
+bg-white/20 backdrop-blur-xl border-l border-white/30 shadow-xl
+min-h-screen sm:min-h-auto w-[60%] sm:w-auto items-start sm:items-center 
+flex-1 fixed sm:static right-0 top-0 py-30 sm:py-0 px-10 sm:px-0 
+transition-transform duration-300
+${open ? "translate-x-0" : "translate-x-full"} sm:translate-x-0`}
           >
             <ul className="flex flex-col sm:flex-row items-start sm:items-center mx-0 sm:mx-auto">
               {navLinks.map(({ id, name, path }) => (
@@ -58,12 +59,11 @@ const Navbar = () => {
               ))}
             </ul>
 
-            <div className="nav-btn flex mt-4.5 sm:mt-0">
+            <div className="nav-btn flex mt-3 sm:mt-0">
               <PrimaryBtn />
             </div>
           </div>
 
-          {/* Hamburger */}
           <Hamburger open={open} setOpen={setOpen} />
         </nav>
       </div>

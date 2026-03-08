@@ -1,9 +1,9 @@
-import React from "react";
 import { stats } from "../../Services/JSON/About";
-import SecTitle from "../../Components/Title/SecTitle";
-import TerTitle from "../../Components/Title/TerTitle";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import Container from "../../Components/Container/Container";
+import SubTitle from "../../Services/Title/SubTitle";
+import PriTitle from "../../Services/Title/PriTitle";
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -12,18 +12,19 @@ const About = () => {
   });
   return (
     <section className=" py-10 sm:py-15">
-      <div className="max-w-330 w-full mx-auto px-3.5">
+      <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5 xl:gap-7.5 ">
-          <figure className="max-w-161.25 h-full lg:h-155 mx-auto lg:mx-0">
+          <figure className="max-w-130 h-full lg:h-155 mx-auto ">
             <img
-              src={"Images/About-img.png"}
+              src={"Images/About-img.jpg"}
               alt="About-img"
-              className="h-full w-full object-contain "
+              className="h-full w-full object-cover rounded-2xl "
             />
           </figure>
           <div className="px-0 lg:px-7.5">
-            <TerTitle terTitle=" About us" />
-            <SecTitle secTitle=" The Future of Energy Starts Here; Turn Sunlight into Savings" />
+            {/* <TerTitle terTitle=" About us" /> */}
+            <PriTitle prititle="About us" />
+            <SubTitle subtitle=" The Future of Energy Starts Here; Turn Sunlight into Savings" />
             <p className="text-sm md:text-[16px]/[20px] lg:text-lg/[28px] xl:text-xl/[30px] text-[#242424]/70 mb-2 sm:mb-5">
               Our solar panel solutions provide efficient, reliable, and
               eco-friendly energy for homes and businesses. By converting
@@ -55,7 +56,7 @@ const About = () => {
               <div className="flex items-center gap-5 border-r border-[#429200] pl-2.5 py-3.75">
                 <figure className="w-12.5 h-12.5 rounded-full overflow-hidden">
                   <img
-                    src="/Images/Founder-img.avif"
+                    src={"Images/Founder-img.avif"}
                     alt=""
                     className="w-full h-full object-cover"
                   />
@@ -81,7 +82,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

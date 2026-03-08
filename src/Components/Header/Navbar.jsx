@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import PrimaryBtn from "../Buttons/PrimaryBtn";
 import Hamburger from "../Buttons/Hamburger";
 import { navLinks } from "../../Services/JSON/Navbar";
+import Container from "../Container/Container";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -17,10 +18,11 @@ const Navbar = () => {
     }
   }, [open]);
   return (
-    <header className="py-2.5">
-      <div className="max-w-330 w-full mx-auto px-3.5">
+    <header className="py-1.5">
+      <Container>
+        {" "}
         <nav className="flex items-center justify-between sm:justify-normal">
-          <div className="nav-logo max-w-24">
+          <div className="nav-logo max-w-20">
             <Link to="/" className="w-full h-full">
               <img
                 src={"Images/Logo.png"}
@@ -67,7 +69,7 @@ ${open ? "translate-x-0" : "translate-x-full"} sm:translate-x-0`}
 
           <Hamburger open={open} setOpen={setOpen} />
         </nav>
-      </div>
+      </Container>
     </header>
   );
 };

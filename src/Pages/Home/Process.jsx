@@ -44,7 +44,7 @@ const Process = () => {
 
                 {/* Icon */}
                 <div className="flex justify-between ">
-                  <p className="text-[12px] sm:text-[16px] text-[#fffcf3ce] max-w-65 ">
+                  <p className="text-[16px] sm:text-lg text-[#fffcf3ce] max-w-90 ">
                     {item.desc}
                   </p>
                   <img

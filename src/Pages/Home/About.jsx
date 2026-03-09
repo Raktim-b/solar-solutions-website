@@ -32,7 +32,7 @@ const About = () => {
                 </>
               }
             />
-            <p className="text-sm md:text-[16px]/[20px] lg:text-lg/[28px] xl:text-xl/[30px] text-[#242424]/70 mb-2 sm:mb-5">
+            <p className="text-[16px]/[22px] md:text-lg/[26px] lg:text-xl/[30px] text-[#242424]/70 mb-2 sm:mb-5">
               Our solar panel solutions provide efficient, reliable, and
               eco-friendly energy for homes and businesses. By converting
               sunlight into sustainable power, we help reduce electricity costs

@@ -20,11 +20,14 @@ const Service = () => {
             }
             className="text-[#FFFCF3]"
           />
-          <ViewMore className="self-end md:self-center "/>
+          <ViewMore className="self-end md:self-center " />
         </div>
         <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-2.5">
           {serviceCard.map((item, index) => (
-            <div key={index} className="grid grid-cols-2 group text-[#FFFCF3]">
+            <div
+              key={index}
+              className="grid grid-cols-1 sm:grid-cols-2 group text-[#FFFCF3]"
+            >
               {/* Image */}
               <figure className="h-50 sm:h-80 w-full overflow-hidden rounded-sm">
                 <img
@@ -34,7 +37,7 @@ const Service = () => {
                 />
               </figure>
 
-              <div className="flex servcice-card-desc h-50 sm:h-80 flex-col justify-between p-3.5 sm:p-6 bg-[#FFFCF314] ml-2.5 rounded-sm">
+              <div className="flex servcice-card-desc h-50 sm:h-80 w-full sm:w-auto flex-col justify-between p-3.5 sm:p-6 bg-[#FFFCF314] mt-2.5 sm:mt-0 ml-0 sm:ml-2.5 rounded-sm">
                 <div>
                   <p className="text-sm text-[#FFFCF3] font-semibold mb-2">
                     {item.id}
@@ -45,7 +48,7 @@ const Service = () => {
                     className="text-[#FFFCF3]"
                   />
                 </div>
-                <p className="service-card-para text-[12px] sm:text-[16px] text-[#FFFCF37A]">
+                <p className="service-card-para text-[16px] sm:text-lg text-[#FFFCF37A]">
                   {item.desc}
                 </p>
               </div>

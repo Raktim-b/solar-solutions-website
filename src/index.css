@@ -37,7 +37,6 @@ h4 {
     rgba(0, 0, 0, 0.15)
   );
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   /* z-index: 1; */
 }
 .hero-para {

@@ -13,8 +13,8 @@ const About = () => {
   return (
     <section className=" py-10 sm:py-15 min-h-screen relative z-10 bg-[#F8FBF5]">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-7.5 ">
-          <figure className="max-w-80 sm:max-w-130 h-full lg:h-155 mx-auto sm:mx-0 ">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-7.5 ">
+          <figure className="max-w-80 sm:max-w-100 lg:max-w-130 h-full lg:h-155 mx-auto lg:mx-0 ">
             <img
               src={"Images/About-img.jpg"}
               alt="About-img"

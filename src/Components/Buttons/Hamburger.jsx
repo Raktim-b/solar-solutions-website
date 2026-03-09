@@ -3,7 +3,7 @@ const Hamburger = ({ open, setOpen }) => {
     <div>
       <button
         onClick={() => setOpen(!open)}
-        className={`flex flex-col sm:hidden relative z-50 ml-auto text-xl cursor-pointer ${
+        className={`flex flex-col md:hidden relative z-50 ml-auto text-xl cursor-pointer ${
           open ? "tilted" : ""
         }`}
         id="toggler-btn"

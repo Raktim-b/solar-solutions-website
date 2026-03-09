@@ -8,28 +8,33 @@ import SecondaryBtn from "../../Components/Buttons/SecondaryBtn";
 const Banner = () => {
   const navigate = useNavigate();
   return (
-    <section className="banner-sec min-h-screen sm:min-h-screen flex justify-center pt-40 sm:pt-0 items-center text-center">
+    <section className="banner-sec sticky top-0 min-h-screen flex items-center z-0">
       <Container>
-        <div className="flex flex-col items-center text-center">
-          <MainTitle
-            maintitle={
-              <>
-                Advanced Solar Solutions for Modern{" "}
-                <span className="text-green-500">Living</span>
-              </>
-            }
-          />
-          <p className="text-[16px]/[20px] md:text-lg/[24px] lg:text-xl/[28px] xl:text-2xl/[30px] text-[#f8f5ec] relative z-2 pt-3.5 lg:pt-4 xl:pt-5 pb-5 xl:pb-7.5">
-            Our solar solutions are designed to deliver reliable, clean energy
-            while reducing your electricity costs. By harnessing the power of
-            the sun, we help homes and businesses move toward a sustainable
-            future with efficient, long-lasting technology you can trust.
-          </p>
+        <div className="grid lg:grid-cols-[1fr_auto] items-end gap-7.5">
+          <div className="max-w-187.5">
+            <MainTitle
+              maintitle={
+                <>
+                  Advanced Solar Solutions for Modern{" "}
+                  <span className="text-green-500">Living</span>
+                </>
+              }
+            />
 
-          <SecondaryBtn
-            name="Contact Now"
-            onclick={() => navigate("/Contact")}
-          />
+            <p className="text-[16px]/[22px] md:text-lg/[26px] lg:text-xl/[30px] text-[#f8f5ec] font-medium pt-5 relative z-2">
+              Our solar solutions are designed to deliver reliable, clean energy
+              while reducing your electricity costs. By harnessing the power of
+              the sun, we help homes and businesses move toward a sustainable
+              future with efficient, long-lasting technology you can trust.
+            </p>
+          </div>
+
+          <div className="lg:self-end">
+            <SecondaryBtn
+              name="Contact Now"
+              onclick={() => navigate("/Contact")}
+            />
+          </div>
         </div>
       </Container>
     </section>

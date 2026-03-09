@@ -4,6 +4,7 @@
 body {
   background: #fff;
   font-family: "Outfit", sans-serif !important;
+  background-color: white;
 }
 h1,
 h2,
@@ -23,8 +24,7 @@ h4 {
 /* Banner */
 .banner-sec {
   background: url("/Images/Banner-bg.webp") no-repeat top/cover;
-  background-attachment: fixed;
-  position: relative;
+  /* background-attachment: fixed; */
 }
 .banner-sec::before {
   content: "";
@@ -33,10 +33,10 @@ h4 {
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.25),
-    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.45),
     rgba(0, 0, 0, 0.15)
   );
-  backdrop-filter: blur(2px);
+
   /* z-index: 1; */
 }
 .hero-para {
@@ -47,6 +47,7 @@ h4 {
   background: url(../public/Images/Service-bg.png) no-repeat center/cover;
   background-attachment: fixed;
 }
+
 @media screen and (max-width: 420px) {
   .nav-collapsed {
     padding-right: 0px;

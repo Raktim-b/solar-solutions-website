@@ -31,7 +31,7 @@ const Process = () => {
                 style={{ top: `${60 + index * 70}px` }}
                 className={`${
                   index % 2 === 0 ? "bg-black" : "bg-[#1e1e1e]"
-                } static sm:sticky w-full h-60 sm:h-70 text-white p-8 rounded-2xl flex flex-col justify-between `}
+                } static sm:sticky w-full h-60 sm:h-70 text-white p-5 sm:p-8 rounded-xl flex flex-col justify-between `}
               >
                 <div className="flex justify-between items-start">
                   <div>

@@ -22,7 +22,7 @@ h4 {
 }
 /* Banner */
 .banner-sec {
-  background: url(Images/Banner-bg.webp) no-repeat top/cover;
+  background: url("/Images/Banner-bg.webp") no-repeat top/cover;
   background-attachment: fixed;
   position: relative;
 }

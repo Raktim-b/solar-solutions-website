@@ -11,10 +11,10 @@ const About = () => {
     threshold: 0.4,
   });
   return (
-    <section className=" py-10 sm:py-15 min-h-screen relative z-10 bg-white">
+    <section className=" py-10 sm:py-15 min-h-screen relative z-10 bg-[#F8FBF5]">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7.5 ">
-          <figure className="max-w-80 sm:max-w-130 h-full lg:h-155 mx-auto ">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-7.5 ">
+          <figure className="max-w-80 sm:max-w-130 h-full lg:h-155 mx-auto sm:mx-0 ">
             <img
               src={"Images/About-img.jpg"}
               alt="About-img"
@@ -22,9 +22,16 @@ const About = () => {
             />
           </figure>
           <div className="px-0 lg:px-7.5">
-            {/* <TerTitle terTitle=" About us" /> */}
-            <PriTitle prititle="About us" />
-            <SubTitle subtitle=" The Future of Energy Starts Here; Turn Sunlight into Savings" />
+            <PriTitle prititle="About us" className="text-green-500" />
+            <SubTitle
+              className="text-[#242424]"
+              subtitle={
+                <>
+                  The Future of Energy Starts Here;Turn{" "}
+                  <span className="text-green-500">Sunlight into Savings</span>
+                </>
+              }
+            />
             <p className="text-sm md:text-[16px]/[20px] lg:text-lg/[28px] xl:text-xl/[30px] text-[#242424]/70 mb-2 sm:mb-5">
               Our solar panel solutions provide efficient, reliable, and
               eco-friendly energy for homes and businesses. By converting
@@ -33,11 +40,11 @@ const About = () => {
             </p>
             <div
               ref={ref}
-              className="grid grid-cols-3 pt-5 pb-5 sm:pb-7.5 border-b border-[#429200]"
+              className="grid grid-cols-3 pt-5 pb-5 sm:pb-7.5 border-b border-green-500"
             >
               {stats.map((item, index) => (
                 <div key={index}>
-                  <h3 className="text-[#429200] text-[22px]/[26px] sm:text-2xl md:text-[28px] lg:text-3xl xl:text-4xl font-bold mb-1 sm:mb-3">
+                  <h3 className="text-green-500 text-[22px]/[26px] sm:text-2xl md:text-[28px] lg:text-3xl xl:text-4xl font-bold mb-1 sm:mb-3">
                     {inView && (
                       <>
                         <CountUp end={parseInt(item.number)} duration={2} />
@@ -53,7 +60,7 @@ const About = () => {
               ))}
             </div>
             <div className="grid grid-cols-2 mt-2 sm:mt-5">
-              <div className="flex items-center gap-5 border-r border-[#429200] pl-2.5 py-3.75">
+              <div className="flex items-center gap-5 border-r border-green-500 pl-2.5 py-3.75">
                 <figure className="w-12.5 h-12.5 rounded-full overflow-hidden">
                   <img
                     src={"Images/Founder-img.avif"}

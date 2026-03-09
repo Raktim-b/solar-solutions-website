@@ -1,32 +1,27 @@
 export const serviceCard = [
   {
-    imgSrc: "/Images/Service-card1.gif",
+    id: "01",
+    imgSrc: "/Images/Service-card1.jpg",
     heading: "Residential Solar Services",
-    icon: "/Images/Service-icon1.png",
+    desc: "Efficient solar systems designed to power homes sustainably while lowering electricity bills.",
   },
   {
+    id: "02",
     imgSrc: "/Images/Service-card2.png",
     heading: "Commercial and Retail",
-    icon: "/Images/Service-icon2.png",
+    desc: "Reliable solar solutions built to help businesses reduce energy costs and operate more sustainably.",
   },
   {
-    imgSrc: "/Images/Service-card3.png",
+    id: "03",
+    imgSrc: "/Images/Service-card3.jpg",
     heading: "Industrial Solar Panels",
-    icon: "/Images/Service-icon3.png",
+    desc: "High-capacity solar installations engineered to meet large-scale industrial energy demands.",
   },
+
   {
-    imgSrc: "/Images/Service-card4.png",
-    heading: "Agricultural Solar Solutions",
-    icon: "/Images/Service-icon4.png",
-  },
-  {
-    imgSrc: "/Images/Service-card5.png",
+    id: "04",
+    imgSrc: "/Images/Service-card4.jpg",
     heading: "Solar System Maintenance",
-    icon: "/Images/Service-icon5.png",
-  },
-  {
-    imgSrc: "/Images/Service-card6.png",
-    heading: "Energy Efficiency Upgrades",
-    icon: "/Images/Service-icon6.png",
+    desc: "Professional maintenance services ensuring your solar systems run at peak performance year-round.",
   },
 ];

@@ -1,11 +1,11 @@
-import { ArrowRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 const SecondaryBtn = ({ name, onclick }) => {
   return (
     <>
       <button
         onClick={onclick}
-        className="group flex items-center gap-3 cursor-pointer
+        className="group flex items-center gap-2 cursor-pointer
        bg-green-500 rounded-full relative z-2
       py-3 px-6
       text-[16px] font-medium
@@ -14,7 +14,7 @@ const SecondaryBtn = ({ name, onclick }) => {
       >
         {name}
 
-        <ArrowRight
+        <MoveRight
           size={18}
           className="transition-transform duration-300 group-hover:translate-x-1"
         />

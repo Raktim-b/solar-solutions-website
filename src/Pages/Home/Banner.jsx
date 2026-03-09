@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import PrimaryBtn from "../../Components/Buttons/PrimaryBtn";
-
 import Container from "../../Components/Container/Container";
 import MainTitle from "../../Services/Title/MainTitle";
 import SecondaryBtn from "../../Components/Buttons/SecondaryBtn";
@@ -13,6 +11,7 @@ const Banner = () => {
         <div className="grid lg:grid-cols-[1fr_auto] items-end gap-7.5">
           <div className="max-w-187.5">
             <MainTitle
+              className="text-white"
               maintitle={
                 <>
                   Advanced Solar Solutions for Modern{" "}

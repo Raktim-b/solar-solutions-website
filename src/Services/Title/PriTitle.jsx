@@ -1,6 +1,8 @@
-const PriTitle = ({ prititle }) => {
+const PriTitle = ({ prititle, className = "" }) => {
   return (
-    <h4 className="uppercase text-[#429200] select-none font-semibold text-[16px] md:text-lg xl:text-xl tracking-wide">
+    <h4
+      className={`uppercase select-none font-bold text-[16px] md:text-lg ${className}`}
+    >
       {prititle}
     </h4>
   );

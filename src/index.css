@@ -5,6 +5,7 @@ body {
   background: #fff;
   font-family: "Outfit", sans-serif !important;
   background-color: white;
+  overflow-x: hidden;
 }
 h1,
 h2,
@@ -51,5 +52,11 @@ h4 {
 @media screen and (max-width: 420px) {
   .nav-collapsed {
     padding-right: 0px;
+  }
+  .servcice-card-desc {
+    padding: 12px;
+  }
+  .service-card-para {
+    font-size: 11px;
   }
 }

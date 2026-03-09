@@ -8,7 +8,7 @@ import SecondaryBtn from "../../Components/Buttons/SecondaryBtn";
 const Banner = () => {
   const navigate = useNavigate();
   return (
-    <section className="banner-sec min-h-screen sm:min-h-screen flex justify-center items-center text-center">
+    <section className="banner-sec min-h-screen sm:min-h-screen flex justify-center pt-40 sm:pt-0 items-center text-center">
       <Container>
         <div className="flex flex-col items-center text-center">
           <MainTitle

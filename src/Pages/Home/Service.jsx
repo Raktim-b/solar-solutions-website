@@ -21,7 +21,7 @@ const Service = () => {
             {serviceCard.map((item, index) => (
               <div
                 key={index}
-                className="group sticky top-3 sm:top-5 md:relative md:top-auto cursor-pointer min-h-75 w-full bg-cover bg-center flex flex-col items-center justify-center text-white overflow-hidden"
+                className="group relative md:top-auto cursor-pointer min-h-75 w-full bg-cover bg-center flex flex-col items-center justify-center text-white overflow-hidden"
                 style={{ backgroundImage: `url(${item.imgSrc})` }}
               >
                 <div className="absolute inset-0 bg-black/75 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition duration-500"></div>

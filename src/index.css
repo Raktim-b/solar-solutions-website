@@ -1,30 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
-@font-face {
-  font-family: "Figtree";
-  src:
-    url("/Font/figtree_5.2.10/webfonts/figtree-latin-400-normal.woff2")
-      format("woff2"),
-    url("/Font/figtree_5.2.10/webfonts/figtree-latin-400-normal.woff")
-      format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Figtree";
-  src:
-    url("/Font/figtree_5.2.10/webfonts/figtree-latin-700-normal.woff2")
-      format("woff2"),
-    url("/Font/figtree_5.2.10/webfonts/figtree-latin-700-normal.woff")
-      format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
 body {
   background: #fff;
-  font-family: "Figtree", sans-serif;
+  font-family: "Outfit", sans-serif !important;
 }
-
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Syne", sans-serif !important;
+}
 /* Header */
 #toggler-btn.tilted .toggle-line1 {
   transition: all 0.3s ease-in-out;
@@ -36,7 +22,7 @@ body {
 }
 /* Banner */
 .banner-sec {
-  background: url(../public/Images/Banner-bg.png) no-repeat center/cover;
+  background: url(Images/Banner-bg.jpg) no-repeat top/cover;
   background-attachment: fixed;
   position: relative;
 }
@@ -44,13 +30,15 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background:  linear-gradient(
+  background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0.15)
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.15)
   );
-  z-index: 1;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  /* z-index: 1; */
 }
 .hero-para {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);

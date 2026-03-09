@@ -8,8 +8,8 @@ const Hamburger = ({ open, setOpen }) => {
         }`}
         id="toggler-btn"
       >
-        <span className="inline-block toggle-line1 bg-[#242424] h-1 w-8 mb-1.5"></span>
-        <span className="inline-block toggle-line2 bg-[#242424] h-1 w-4.5 self-end"></span>
+        <span className="inline-block toggle-line1 bg-[#171717] h-1 w-8 mb-1.5"></span>
+        <span className="inline-block toggle-line2 bg-[#171717] h-1 w-4.5 self-end"></span>
       </button>
     </div>
   );

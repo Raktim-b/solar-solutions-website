@@ -18,11 +18,11 @@ const Navbar = () => {
     }
   }, [open]);
   return (
-    <header className="py-1.5">
+    <header className=" py-5 absolute w-full">
       <Container>
         {" "}
         <nav className="flex items-center justify-between sm:justify-normal">
-          <div className="nav-logo max-w-20">
+          <div className="nav-logo max-w-15 relative z-2 ">
             <Link to="/" className="w-full h-full">
               <img
                 src={"Images/Logo.png"}
@@ -34,7 +34,7 @@ const Navbar = () => {
 
           <div
             className={`nav-collapsed z-40 flex flex-col sm:flex-row justify-normal sm:justify-between
-bg-white/20 backdrop-blur-xl border-l border-white/30 shadow-xl
+bg-white/10 backdrop-blur-3xl border-l border-white/30 shadow-xl
 sm:bg-transparent sm:backdrop-blur-none sm:border-0 sm:shadow-none
 min-h-screen sm:min-h-auto w-[70%] sm:w-auto items-start sm:items-center
 flex-1 fixed sm:static right-0 top-0 py-30 sm:py-0 pr-10 pl-20 sm:pl-0 sm:pr-0
@@ -52,8 +52,8 @@ ${open ? "translate-x-0" : "translate-x-full"} sm:translate-x-0`}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
                       `text-3xl sm:text-[16px] md:text-lg font-semibold sm:font-medium transition-colors duration-300 ${
-                        isActive ? "text-[#429200]" : "text-[#242424]"
-                      } hover:text-[#429200]`
+                        isActive ? "text-green-500" : "text-white"
+                      } hover:text-green-500`
                     }
                   >
                     {name}

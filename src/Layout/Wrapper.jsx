@@ -9,11 +9,11 @@ const Wrapper = () => {
   return (
     <>
       <Loader />
-      <main className="page-container">
+      <div className="page-container ">
         <Navbar />
         <Outlet />
         <Footer />
-      </main>
+      </div>
     </>
   );
 };

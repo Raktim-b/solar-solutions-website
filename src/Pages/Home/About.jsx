@@ -9,14 +9,18 @@ const About = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.4,
+    rootMargin: "-80px 0px",
   });
   return (
-    <section className=" py-10 sm:py-15 min-h-screen relative z-10 bg-[#F8FBF5]">
+    <section
+      ref={ref}
+      className=" py-10 sm:py-15 min-h-screen relative z-10 bg-[#F8FBF5]"
+    >
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-7.5 ">
           <figure className="max-w-80 sm:max-w-100 lg:max-w-130 h-full lg:h-155 mx-auto lg:mx-0 ">
             <img
-              src={"Images/About-img.jpg"}
+              src={"Images/About-img.gif"}
               alt="About-img"
               className="h-full w-full object-cover rounded-2xl "
             />
@@ -38,16 +42,13 @@ const About = () => {
               sunlight into sustainable power, we help reduce electricity costs
               while supporting a cleaner, greener planet for future generations.
             </p>
-            <div
-              ref={ref}
-              className="grid grid-cols-3 pt-5 pb-5 sm:pb-7.5 border-b border-green-500"
-            >
+            <div className="grid grid-cols-3 pt-5 pb-5 sm:pb-7.5 border-b border-green-500">
               {stats.map((item, index) => (
                 <div key={index}>
                   <h3 className="text-green-500 text-[22px]/[26px] sm:text-2xl md:text-[28px] lg:text-3xl xl:text-4xl font-bold mb-1 sm:mb-3">
                     {inView && (
                       <>
-                        <CountUp end={parseInt(item.number)} duration={2} />
+                        <CountUp end={parseInt(item.number)} duration={3} />
                         {item.number.includes("+") && "+"}
                         {item.number.includes("%") && "%"}
                       </>

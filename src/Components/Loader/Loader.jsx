@@ -43,7 +43,7 @@ const Loader = () => {
   return (
     <div
       ref={stairParent}
-      className="fixed top-0 left-0 w-full h-screen z-50 pointer-events-none hidden"
+      className="fixed top-0 left-0 w-full h-screen z-50 pointer-events-none "
     >
       <div className="flex w-full h-full">
         <div className="stair w-1/5 h-full bg-black"></div>

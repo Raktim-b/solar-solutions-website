@@ -20,7 +20,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-7.5 ">
           <figure className="max-w-80 sm:max-w-100 lg:max-w-130 h-full lg:h-155 mx-auto lg:mx-0 ">
             <img
-              src={"Images/About-img.gif"}
+              src={"Images/About-img.jpg"}
               alt="About-img"
               className="h-full w-full object-cover rounded-2xl "
             />

@@ -17,7 +17,10 @@ const Navbar = () => {
       document.body.classList.remove("overflow-hidden");
       document.documentElement.classList.remove("overflow-hidden");
     }
-    
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      document.documentElement.classList.remove("overflow-hidden");
+    };
   }, [open]);
 
   return (

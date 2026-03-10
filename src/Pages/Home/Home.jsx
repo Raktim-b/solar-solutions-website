@@ -12,7 +12,7 @@ const Home = () => {
       <About />
       <Service />
       <Process />
-      {/* <Step /> */}
+      <Step />
     </>
   );
 };

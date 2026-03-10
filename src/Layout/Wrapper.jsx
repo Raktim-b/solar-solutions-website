@@ -8,7 +8,7 @@ import Loader from "../Components/Loader/Loader";
 const Wrapper = () => {
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <div className="page-container ">
         <Navbar />
         <Outlet />

@@ -25,25 +25,26 @@ const Loader = () => {
       },
     });
     gsapTL.to(stairParent.current, {
-      display: "none",
+      // display: "none",
+      autoAlpha: 0,
     });
     gsapTL.to(".stair", {
       y: "0%",
     });
-    gsap.from(".page-container", {
-      opacity: 0,
-      scale: 1.3,
-      y: 40,
-      duration: 1,
-      delay: 1.2,
-      ease: "power3.out",
-    });
+    // gsap.from(".page-container", {
+    //   opacity: 0,
+    //   scale: 1.3,
+    //   y: 40,
+    //   duration: 1,
+    //   delay: 1.2,
+    //   ease: "power3.out",
+    // });
   }, [currentPath]);
 
   return (
     <div
       ref={stairParent}
-      className="fixed top-0 left-0 w-full h-screen z-50 pointer-events-none overflow-x-hidden "
+      className="fixed top-0 left-0 w-full h-screen z-50 pointer-events-none overflow-hidden "
     >
       <div className="flex w-full h-full">
         <div className="stair w-1/5 h-full bg-black"></div>

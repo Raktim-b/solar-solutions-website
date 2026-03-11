@@ -30,7 +30,7 @@ h4 {
 /* Banner */
 .banner-sec {
   /* background: url("/Images/Banner-bg.webp") no-repeat top/cover; */
-  background: url("/public/Images/Step-img.avif") no-repeat top/cover;
+  background: url("/public/Images/Banner-img.avif") no-repeat center/cover;
   /* background-attachment: fixed; */
 }
 
@@ -38,13 +38,14 @@ h4 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.25),
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.15));
-
-  /* z-index: 1; */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15)
+  );
 }
+/* z-index: 1; */
 
 .hero-para {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
@@ -55,7 +56,23 @@ h4 {
   background: url(../public/Images/Service-bg.png) no-repeat center/cover;
   background-attachment: fixed;
 }
+/* AutoScroll */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-60%);
+  }
+}
 
+.animate-ticker {
+  animation: ticker 25s linear infinite;
+}
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
+}
 @media screen and (max-width: 420px) {
   .nav-collapsed {
     padding-right: 0px;

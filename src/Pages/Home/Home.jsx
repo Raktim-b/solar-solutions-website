@@ -4,6 +4,7 @@ import About from "./About";
 import Service from "./Service";
 import Process from "./Process";
 import Step from "./Step";
+import Autoscroll from "../../Components/AutoScroll/Autoscroll";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <About />
       <Service />
       <Process />
+      <Autoscroll />
       <Step />
     </>
   );

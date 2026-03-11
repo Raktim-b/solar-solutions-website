@@ -1,15 +1,33 @@
 import { useNavigate } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Container from "../../Components/Container/Container";
 import MainTitle from "../../Services/Title/MainTitle";
 import SecondaryBtn from "../../Components/Buttons/SecondaryBtn";
 
 const Banner = () => {
   const navigate = useNavigate();
+  useGSAP(() => {
+    gsap.from(".banner-cntn", {
+      x: -180,
+      opacity: 0,
+      duration: 1.2,
+      delay: 0.3,
+      ease: "power3.out",
+    });
+    gsap.from(".banner-btn", {
+      x: 180,
+      opacity: 0,
+      duration: 1.3,
+      delay: 0.4,
+      ease: "power3.out",
+    });
+  });
   return (
     <section className="banner-sec sticky top-0 min-h-screen flex items-center z-0">
       <Container>
         <div className="grid lg:grid-cols-[1fr_auto] items-end gap-7.5">
-          <div className="max-w-187.5">
+          <div className="max-w-187.5 banner-cntn">
             <MainTitle
               className="text-white"
               maintitle={
@@ -28,7 +46,7 @@ const Banner = () => {
             </p>
           </div>
 
-          <div className="lg:self-end">
+          <div className="lg:self-end banner-btn">
             <SecondaryBtn
               name="Contact Now"
               onclick={() => navigate("/Contact")}

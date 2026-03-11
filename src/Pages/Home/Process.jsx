@@ -30,7 +30,7 @@ const Process = () => {
               tailored to your needs.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-5 sm:gap-62.5 w-full">
+          <div className="grid grid-cols-1 gap-5 sm:gap-55 w-full">
             {processCard.map((item, index) => (
               <div
                 key={index}
@@ -63,6 +63,7 @@ const Process = () => {
             ))}
           </div>
         </div>
+       
       </Container>
     </section>
   );

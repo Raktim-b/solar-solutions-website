@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import PrimaryBtn from "../Buttons/PrimaryBtn";
 import Hamburger from "../Buttons/Hamburger";
 import { navLinks } from "../../Services/JSON/Navbar";
@@ -10,21 +11,28 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (open) {
-      document.body.classList.add("overflow-hidden");
-      document.documentElement.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-      document.documentElement.classList.remove("overflow-hidden");
-    }
+    open
+      ? (document.body.classList.add("overflow-hidden"),
+        document.documentElement.classList.add("overflow-hidden"))
+      : (document.body.classList.remove("overflow-hidden"),
+        document.documentElement.classList.remove("overflow-hidden"));
     return () => {
       document.body.classList.remove("overflow-hidden");
       document.documentElement.classList.remove("overflow-hidden");
     };
   }, [open]);
+  useGSAP(() => {
+    gsap.from(".navbar", {
+      y: -80,
+      opacity: 0,
+      duration: 1,
+      delay: 0.2,
+      ease: "power3.out",
+    });
+  });
 
   return (
-    <header className="py-5 fixed z-2 w-full">
+    <header className="py-5 navbar fixed z-2 w-full ">
       <Container>
         <nav className="flex items-center justify-between md:justify-normal">
           <div className="nav-logo max-w-15 relative z-2">

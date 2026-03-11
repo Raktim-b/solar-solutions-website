@@ -1,15 +1,12 @@
 const items = ["Renewable Energy", "Smart Energy", "Renewable Energy"];
 const Autoscroll = () => {
   return (
-    <section className="bg-black py-4 sm:py-8 lg:py-12 relative z-10 overflow-hidden">
+    <section className="bg-black py-3 select-none sm:py-6 lg:py-9 relative z-10 overflow-hidden">
       <div className="relative w-full flex">
         {/* scrolling wrapper */}
         <div className="flex whitespace-nowrap animate-ticker">
           {[...items, ...items].map((text, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-6 px-6 "
-            >
+            <div key={i} className="flex items-center gap-6 px-6 ">
               <span className="text-stroke text-[80px] font-semibold">
                 {text}
               </span>

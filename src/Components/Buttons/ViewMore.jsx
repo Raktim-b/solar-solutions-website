@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { MoveRight } from "lucide-react";
 
-const ViewMore = ({ className }) => {
+const ViewMore = ({ contnt, className }) => {
   return (
     <Link
       to="/Service"
       className={`relative inline-flex items-center gap-2 text-[#FFFCF3] font-semibold text-lg group hover:text-green-400 ${className}`}
     >
-      View More
+      {contnt}
       <MoveRight
         size={18}
         className="transition-transform duration-300 group-hover:translate-x-1"

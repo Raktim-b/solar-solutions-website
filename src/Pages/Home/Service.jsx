@@ -7,7 +7,7 @@ import ViewMore from "../../Components/Buttons/ViewMore";
 
 const Service = () => {
   return (
-    <section className="py-10 sm:py-15 min-h-screen relative z-10 bg-[#212122]">
+    <section className="py-10 sm:py-15 min-h-screen relative z-10 bg-black">
       <Container>
         <PriTitle prititle="OUR SERVICES" className="text-[#FFFCF3]" />
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
@@ -18,17 +18,16 @@ const Service = () => {
                 <span className="text-green-400">Easy and Affordable</span>
               </>
             }
-            className="text-[#FFFCF3]"
+            className="text-white"
           />
-          <ViewMore className="self-end md:self-center " />
+          <ViewMore className="self-end md:self-center " contnt="View More" />
         </div>
         <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-2.5">
           {serviceCard.map((item, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 sm:grid-cols-2 group text-[#FFFCF3]"
+              className="grid grid-cols-1 sm:grid-cols-2 group text-white"
             >
-              {/* Image */}
               <figure className="h-50 sm:h-80 w-full overflow-hidden rounded-sm">
                 <img
                   src={item.imgSrc}
@@ -37,16 +36,13 @@ const Service = () => {
                 />
               </figure>
 
-              <div className="flex servcice-card-desc h-50 sm:h-80 w-full sm:w-auto flex-col justify-between p-3.5 sm:p-6 bg-[#FFFCF314] mt-2.5 sm:mt-0 ml-0 sm:ml-2.5 rounded-sm">
+              <div className="flex servcice-card-desc h-50 sm:h-80 w-full sm:w-auto flex-col justify-between p-3.5 sm:p-6 bg-[#171717] mt-2.5 sm:mt-0 ml-0 sm:ml-2.5 rounded-sm">
                 <div>
-                  <p className="text-sm text-[#FFFCF3] font-semibold mb-2">
+                  <p className="text-sm text-white font-semibold mb-2">
                     {item.id}
                   </p>
 
-                  <CardTitle
-                    cardtitle={item.heading}
-                    className="text-[#FFFCF3]"
-                  />
+                  <CardTitle cardtitle={item.heading} className="text-white" />
                 </div>
                 <p className="service-card-para text-[16px] sm:text-lg text-[#FFFCF37A]">
                   {item.desc}

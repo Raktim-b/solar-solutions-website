@@ -7,7 +7,7 @@ const Autoscroll = () => {
         <div className="flex whitespace-nowrap animate-ticker">
           {[...items, ...items].map((text, i) => (
             <div key={i} className="flex items-center gap-6 px-6 ">
-              <span className="text-stroke text-[80px] font-semibold">
+              <span className="text-stroke text-[50px] sm:text-[80px] font-semibold">
                 {text}
               </span>
               <div className="w-10 h-10 flex items-center justify-center bg-green-500 rounded-full text-black text-xl"></div>

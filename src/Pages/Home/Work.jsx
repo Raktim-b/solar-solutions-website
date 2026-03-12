@@ -10,7 +10,7 @@ const Work = () => {
   return (
     <section className="bg-[#101010] relative z-10 px-0 sm:px-5 md:px-10 lg:px-15 xl:px-25">
       <Container>
-        <div className="py-10 md:py-15 lg:py-25 min-h-screen bg-black px-5">
+        <div className="py-10 md:py-15  min-h-screen bg-black px-5">
           <div className="text-center">
             <PriTitle prititle="Our Works" className="text-green-400" />
             <SubTitle

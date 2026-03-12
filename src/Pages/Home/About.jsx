@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section
       ref={ref}
-      className=" py-10 sm:py-20 min-h-screen relative z-10 bg-[#F8FBF5]"
+      className=" py-10 sm:py-20 min-h-[95vh] sm:min-h-screen relative z-10 bg-[#F8FBF5]"
     >
       <Container>
         <div className="grid grid-cols-1 items-center lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-2 ">

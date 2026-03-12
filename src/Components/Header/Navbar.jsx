@@ -26,7 +26,7 @@ const Navbar = () => {
       y: -80,
       opacity: 0,
       duration: 1,
-      delay: 0.2,
+      delay: 1, // slightly more than loader time
       ease: "power3.out",
     });
   });

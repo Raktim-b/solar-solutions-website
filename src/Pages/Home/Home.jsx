@@ -6,6 +6,7 @@ import Process from "./Process";
 import Step from "./Step";
 import Autoscroll from "../../Components/AutoScroll/Autoscroll";
 import Work from "./Work";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Autoscroll />
       <Step />
       <Work />
+      <Testimonials />
     </>
   );
 };

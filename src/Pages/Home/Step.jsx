@@ -25,7 +25,7 @@ const Step = () => {
             ))}
           </div>
           <div className="max-w-full order-1 md:order-2 relative md:sticky mb-10 md:mb-0 top-0 md:top-20 self-start">
-            <PriTitle prititle="OUR WORKING steps" className="text-[#2C5E44]" />
+            <PriTitle prititle="OUR WORKING steps" className="text-green-500" />
             <SubTitle
               className="text-[#242424]"
               subtitle={

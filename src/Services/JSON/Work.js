@@ -10,7 +10,7 @@ export const workCard = [
     imgSrc: "/Images/work-img2.avif",
   },
   {
-    type: "Domestic",
+    type: "Industrial",
     name: "PrimeIndustrial Solar Install",
     imgSrc: "/Images/work-img3.jpg",
   },

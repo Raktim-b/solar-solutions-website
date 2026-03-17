@@ -5,7 +5,7 @@ import SubTitle from "../../Services/Title/SubTitle";
 
 const QuestionAnswer = () => {
   return (
-    <section className="bg-[#f3f3f3] min-h-screen relative z-10 py-10 sm:py-20">
+    <section className="bg-[#f3f3f3] min-h-auto sm:min-h-screen relative z-10 py-10 sm:py-20">
       <Container>
         <div className="text-center">
           <PriTitle

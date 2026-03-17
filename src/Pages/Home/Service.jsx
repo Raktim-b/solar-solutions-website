@@ -8,7 +8,7 @@ import ViewMore from "../../Components/Buttons/ViewMore";
 const Service = () => {
   return (
     <section className="py-10 sm:py-20 overflow-hidden min-h-screen relative z-10 bg-black">
-      <div className="absolute -top-5 right-0 grayscale-100">
+      <div className="absolute -top-15 sm:-top-5 -right-4 sm:right-0 grayscale-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="272"

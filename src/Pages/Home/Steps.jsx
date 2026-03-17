@@ -1,19 +1,17 @@
 import Container from "../../Components/Container/Container";
-import { processCard } from "../../Services/JSON/Process";
+// import { processCard } from "../../Services/JSON/Process";
+import { steps } from "../../Services/JSON/Step";
 import CardTitle from "../../Services/Title/CardTitle";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
 
-const Process = () => {
+const Steps = () => {
   return (
-    <section className="py-10 sm:py-15 min-h-screen relative z-10 bg-[#F8FBF5]">
+    <section className="py-10 sm:py-20 min-h-screen relative z-10 bg-[#F8FBF5]">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-7.5 items-start">
           <div className="relative sm:sticky top-0 sm:top-15">
-            <PriTitle
-              prititle="OUR WORKING PROCESS"
-              className="text-green-500"
-            />
+            <PriTitle prititle="OUR WORKING steps" className="text-green-500" />
             <SubTitle
               className="text-[#242424]"
               subtitle={
@@ -31,7 +29,7 @@ const Process = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 sm:gap-55 w-full">
-            {processCard.map((item, index) => (
+            {steps.map((item, index) => (
               <div
                 key={index}
                 style={{ top: `${60 + index * 70}px` }}
@@ -63,10 +61,9 @@ const Process = () => {
             ))}
           </div>
         </div>
-       
       </Container>
     </section>
   );
 };
 
-export default Process;
+export default Steps;

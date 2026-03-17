@@ -73,6 +73,13 @@ h4 {
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.35);
 }
+/* Accordian */
+.MuiAccordionSummary-content {
+  margin: 0 !important;
+}
+.MuiAccordionSummary-expandIconWrapper.Mui-expanded svg {
+  transform: rotate(45deg);
+}
 @media screen and (max-width: 420px) {
   .nav-collapsed {
     padding-right: 0px;

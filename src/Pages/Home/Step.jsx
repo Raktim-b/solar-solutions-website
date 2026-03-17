@@ -18,7 +18,7 @@ const Step = () => {
                 <p className="text-[44px] font-semibold ">{item.stepno}</p>
                 <CardTitle cardtitle={item.heading} />
                 <div className="h-px bg-gray-200 my-4"></div>
-                <p className="text-[#242424]/70 text-[16px] leading-6">
+                <p className="text-[#242424]/70  leading-6">
                   {item.desc}
                 </p>
               </div>
@@ -41,14 +41,14 @@ const Step = () => {
               understand your energy needs, followed by a core system design
               tailored for maximum efficiency.
             </p>
-            <figure className="w-full mt-10 h-55 sm:h-87.5 overflow-hidden">
+            {/* <figure className="w-full mt-10 h-55 sm:h-87.5 overflow-hidden">
               <img
                 src="/Images/Process.avif"
                 alt="Stepimg"
                 className="w-full h-full object-cover relative rounded-lg"
               />
               <div className="absolute inset-x-0 bottom-0 h-1/2 rounded-lg bg-linear-to-t from-black/70 to-transparent"></div>
-            </figure>
+            </figure> */}
           </div>
         </div>
       </Container>

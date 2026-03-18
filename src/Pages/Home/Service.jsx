@@ -4,151 +4,11 @@ import SubTitle from "../../Services/Title/SubTitle";
 import { serviceCard } from "../../Services/JSON/ServiceCard";
 import CardTitle from "../../Services/Title/CardTitle";
 import ViewMore from "../../Components/Buttons/ViewMore";
+import Autoscroll from "../../Components/AutoScroll/Autoscroll";
 
 const Service = () => {
   return (
     <section className="py-10 sm:py-20 overflow-hidden min-h-screen relative z-10 bg-black">
-      <div className="absolute -top-15 sm:-top-5 -right-4 sm:right-0 grayscale-100">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="272"
-          height="272"
-          fill="none"
-        >
-          <g clip-path="url(#a)" opacity=".2">
-            <path
-              fill="#011A14"
-              d="M-.142 217.576v54.428h54.428v-54.428H-.142Z"
-              opacity=".498"
-            />
-            <path
-              fill="#C8F69B"
-              d="M-.142 163.146v54.428h54.428v-54.428H-.142Z"
-              opacity=".579"
-            />
-            <path
-              fill="#011A14"
-              d="M-.142 108.716v54.429h54.428v-54.429H-.142Z"
-              opacity=".66"
-            />
-            <path
-              fill="#011A14"
-              d="M-.142 54.286v54.429h54.428V54.286H-.142Z"
-              opacity=".739"
-            />
-            <path
-              fill="#C8F69B"
-              d="M-.142-.143v54.428h54.428V-.143H-.142Z"
-              opacity=".816"
-            />
-            <path
-              fill="#011A14"
-              d="M54.287 217.576v54.428h54.428v-54.428H54.287Z"
-              opacity=".478"
-            />
-            <path
-              fill="#011A14"
-              d="M54.287 163.146v54.428h54.428v-54.428H54.287Z"
-              opacity=".556"
-            />
-            <path
-              fill="#011A14"
-              d="M54.287 108.716v54.429h54.428v-54.429H54.287Z"
-              opacity=".631"
-            />
-            <path
-              fill="#C8F69B"
-              d="M54.287 54.286v54.429h54.428V54.286H54.287Z"
-              opacity=".703"
-            />
-            <path
-              fill="#C8F69B"
-              d="M54.287-.147V54.28h54.428V-.147H54.287Z"
-              opacity=".767"
-            />
-            <path
-              fill="#C8F69B"
-              d="M108.715 217.576v54.428h54.428v-54.428h-54.428Z"
-              opacity=".447"
-            />
-            <path
-              fill="#C8F69B"
-              d="M108.715 163.146v54.428h54.428v-54.428h-54.428Z"
-              opacity=".519"
-            />
-            <path
-              fill="#011A14"
-              d="M108.715 108.716v54.429h54.428v-54.429h-54.428Z"
-              opacity=".588"
-            />
-            <path
-              fill="#C8F69B"
-              d="M108.715 54.286v54.429h54.428V54.286h-54.428Z"
-              opacity=".65"
-            />
-            <path
-              fill="#011A14"
-              d="M108.715-.147V54.28h54.428V-.147h-54.428Z"
-              opacity=".703"
-            />
-            <path
-              fill="#011A14"
-              d="M163.143 217.576v54.428h54.428v-54.428h-54.428Z"
-              opacity=".405"
-            />
-            <path
-              fill="#011A14"
-              d="M163.143 163.146v54.428h54.428v-54.428h-54.428Z"
-              opacity=".472"
-            />
-            <path
-              fill="#011A14"
-              d="M163.143 108.716v54.429h54.428v-54.429h-54.428Z"
-              opacity=".533"
-            />
-            <path
-              fill="#011A14"
-              d="M163.143 54.286v54.429h54.428V54.286h-54.428Z"
-              opacity=".588"
-            />
-            <path
-              fill="#C8F69B"
-              d="M163.143-.147V54.28h54.428V-.147h-54.428Z"
-              opacity=".631"
-            />
-            <path
-              fill="#011A14"
-              d="M217.572 217.576v54.428H272v-54.428h-54.428Z"
-              opacity=".356"
-            />
-            <path
-              fill="#C8F69B"
-              d="M217.572 163.146v54.428H272v-54.428h-54.428Z"
-              opacity=".417"
-            />
-            <path
-              fill="#C8F69B"
-              d="M217.572 108.716v54.429H272v-54.429h-54.428Z"
-              opacity=".472"
-            />
-            <path
-              fill="#C8F69B"
-              d="M217.572 54.286v54.429H272V54.286h-54.428Z"
-              opacity=".519"
-            />
-            <path
-              fill="#011A14"
-              d="M217.572-.147V54.28H272V-.147h-54.428Z"
-              opacity=".556"
-            />
-          </g>
-          <defs>
-            <clipPath id="a">
-              <path fill="#fff" d="M0 271.996v-272h272v272z" />
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
       <Container>
         <PriTitle prititle="OUR SERVICES" className="text-[#FFFCF3]" />
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
@@ -191,6 +51,9 @@ const Service = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="mt-0 sm:mt-10">
+          <Autoscroll />
         </div>
       </Container>
     </section>

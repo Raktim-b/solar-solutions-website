@@ -41,8 +41,8 @@ h4 {
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.25),
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0.15)
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.45)
   );
 }
 /* z-index: 1; */
@@ -57,17 +57,21 @@ h4 {
   background-attachment: fixed;
 }
 /* AutoScroll */
-@keyframes ticker {
+@keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    left: 0%;
   }
   100% {
-    transform: translateX(-60%);
+    left: -50%;
   }
 }
 
-.animate-ticker {
-  animation: ticker 25s linear infinite;
+.animate-scroll {
+  position: relative;
+  animation: scroll-left 20s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
 }
 .text-stroke {
   color: transparent;

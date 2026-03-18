@@ -11,13 +11,13 @@ const Testimonials = () => {
   const leftCards = test.slice(0, 3);
   const rightCards = test.slice(3, 6);
   return (
-    <section className="relative min-h-screen md:min-h-[230vh] z-20 bg-[#f3f3f3] grid grid-cols-1 md:grid-cols-3 py-10 md:py-0">
+    <section className="relative min-h-auto md:min-h-[230vh] z-20 bg-[#f6f7f9] grid grid-cols-1 md:grid-cols-3 py-10 md:py-0">
       {/* LEFT CARDS */}
       <div className="flex flex-col items-center md:items-end gap-10 md:gap-20 md:pt-[40vh] md:pr-6 order-2 md:order-1 mt-10 md:mt-0">
         {leftCards.map((item, index) => (
           <div
             key={index}
-            className="w-full max-w-100 h-80 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between"
+            className="max-w-75 md:max-w-100 h-80 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between"
           >
             {/* Top */}
             <div className="flex justify-between items-start">
@@ -63,11 +63,11 @@ const Testimonials = () => {
       </div>
 
       {/* RIGHT CARDS */}
-      <div className="flex flex-col items-center md:items-start gap-10 md:gap-20 md:pt-[20vh] md:pl-6 order-3 mt-10 md:mt-0">
+      <div className="hidden md:flex flex-col items-center md:items-start gap-10 md:gap-20 md:pt-[20vh] md:pl-6 order-3 mt-10 md:mt-0">
         {rightCards.map((item, index) => (
           <div
             key={index}
-            className="w-full max-w-100 h-80 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between"
+            className="max-w-75 md:max-w-100 h-80 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between"
           >
             {/* Top */}
             <div className="flex justify-between items-start">

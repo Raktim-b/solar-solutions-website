@@ -3,12 +3,10 @@ import Banner from "./Banner";
 import About from "./About";
 import Service from "./Service";
 import Steps from "./Steps";
-// import Step from "./Step";
-import Autoscroll from "../../Components/AutoScroll/Autoscroll";
 import Work from "./Work";
 import Testimonials from "./Testimonials";
-import Accordion from "../../Services/Accordian/Accordian";
 import QuestionAnswer from "./QuestionAnswer";
+import News from "./News";
 
 const Home = () => {
   return (
@@ -20,8 +18,8 @@ const Home = () => {
       {/* <Step /> */}
       <Work />
       <Testimonials />
-      <Autoscroll />
       <QuestionAnswer />
+      <News />
     </>
   );
 };

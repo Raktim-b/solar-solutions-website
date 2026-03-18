@@ -7,21 +7,21 @@ export const navLinks = [
   {
     id: 2,
     name: "Service",
-    path: "/Service",
+    path: "/service",
   },
   {
     id: 3,
     name: "Contact",
-    path: "/Contact",
+    path: "/contact",
   },
   {
     id: 4,
     name: "Project",
-    path: "/Project",
+    path: "/project",
   },
   {
     id: 5,
     name: "Blog",
-    path: "/Blog",
+    path: "/blog",
   },
 ];

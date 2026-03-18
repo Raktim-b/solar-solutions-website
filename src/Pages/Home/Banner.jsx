@@ -26,7 +26,7 @@ const Banner = () => {
   return (
     <section className="banner-sec sticky top-0 min-h-screen flex items-center z-0">
       <Container>
-        <div className="grid lg:grid-cols-[1fr_auto] items-end gap-7.5">
+        <div className="grid lg:grid-cols-[1fr_auto] items-end gap-7.5 mt=0 lg:mt-20">
           <div className="max-w-187.5 banner-cntn">
             <MainTitle
               className="text-white"
@@ -49,7 +49,7 @@ const Banner = () => {
           <div className="lg:self-end banner-btn">
             <SecondaryBtn
               name="Contact Now"
-              onclick={() => navigate("/Contact")}
+              onclick={() => navigate("/contact")}
             />
           </div>
         </div>

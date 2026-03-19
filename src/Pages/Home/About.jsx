@@ -14,11 +14,11 @@ const About = () => {
   return (
     <section
       ref={ref}
-      className=" py-10 sm:py-20 min-h-screen lg:min-h-screen relative z-10 bg-[#f6f7f9]"
+      className=" py-10 sm:py-20 min-h-auto lg:min-h-screen relative z-10 bg-[#f6f7f9]"
     >
       <Container>
         <div className="grid grid-cols-1 items-center lg:grid-cols-[0.75fr_1.25fr] gap-8 lg:gap-5 ">
-          <figure className="max-w-80 sm:max-w-100 lg:max-w-115 h-full lg:h-135 mx-auto lg:mx-0 ">
+          <figure className="max-w-85 sm:max-w-100 lg:max-w-115 h-full lg:h-135 mx-auto lg:mx-0 ">
             <img
               src={"Images/About-img.avif"}
               alt="About-img"

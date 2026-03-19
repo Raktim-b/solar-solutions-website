@@ -26,7 +26,7 @@ const News = () => {
             contnt="View More"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 xl:gap-8 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {newsCard.map((item, index) => (
             <div
               key={index}

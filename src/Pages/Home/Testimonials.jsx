@@ -13,15 +13,15 @@ const Testimonials = () => {
   return (
     <section className="relative min-h-auto md:min-h-[230vh] z-20 bg-[#f6f7f9] grid grid-cols-1 md:grid-cols-3 py-10 md:py-0">
       {/* LEFT CARDS */}
-      <div className="flex flex-col items-center md:items-end gap-10 md:gap-20 md:pt-[40vh] md:pr-6 order-2 md:order-1 mt-10 md:mt-0">
+      <div className="flex flex-col items-center md:items-end gap-5 sm:gap-10 md:gap-20 md:pt-[40vh] md:pr-6 order-2 md:order-1 mt-10 md:mt-0">
         {leftCards.map((item, index) => (
           <div
             key={index}
-            className="max-w-75 md:max-w-100 h-80 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between"
+            className="max-w-70 md:max-w-100 h-70 md:h-80 bg-white rounded-lg sm:rounded-2xl shadow-xl p-4 sm:p-6 flex flex-col justify-between"
           >
             {/* Top */}
             <div className="flex justify-between items-start">
-              <img src={item.imgSrc} className="w-14" />
+              <img src={item.imgSrc} className="w-10 sm:w-14" />
 
               <div className="flex text-orange-500 gap-1">
                 {[...Array(5)].map((_, i) => (
@@ -30,7 +30,7 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+            <p className="text-gray-500 text-sm sm:text-[16px] leading-relaxed">{item.desc}</p>
 
             <div className="flex items-center gap-3">
               <figure className="w-12.5 h-12.5 rounded-full overflow-hidden">
@@ -80,7 +80,7 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+            <p className="text-gray-500 text-sm sm:text-[16px] leading-relaxed">{item.desc}</p>
 
             <div className="flex items-center gap-3">
               <figure className="w-12.5 h-12.5 rounded-full overflow-hidden">

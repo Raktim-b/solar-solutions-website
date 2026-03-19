@@ -24,11 +24,11 @@ const Work = () => {
               className="text-white"
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 sm:mt-20">
             {workCard.map(({ type, name, imgSrc }, index) => (
               <div
                 key={index}
-                className={`relative group overflow-hidden sm:h-90 lg:h-115 xl:h-135 rounded-sm cursor-pointer
+                className={`relative group overflow-hidden h-55 sm:h-90 lg:h-115 xl:h-135 rounded-sm cursor-pointer
                 ${index === 0 ? "md:col-span-2" : "md:col-span-1"}`}
               >
                 <img

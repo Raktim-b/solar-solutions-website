@@ -28,13 +28,13 @@ const Service = () => {
           />
           <ViewMore className="self-end md:self-center " contnt="View More" />
         </div>
-        <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-2.5 relative z-11">
+        <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-2.5 relative z-11">
           {serviceCard.map((item, index) => (
             <div
               key={index}
               className="grid grid-cols-1 sm:grid-cols-2 group text-white"
             >
-              <figure className="h-50 sm:h-80 w-full overflow-hidden rounded-sm">
+              <figure className="h-55 sm:h-80 w-full overflow-hidden rounded-sm">
                 <img
                   src={item.imgSrc}
                   alt={item.heading}
@@ -42,7 +42,7 @@ const Service = () => {
                 />
               </figure>
 
-              <div className="flex servcice-card-desc h-50 sm:h-80 w-full sm:w-auto flex-col justify-between p-3.5 sm:p-6 bg-[#171717] mt-2.5 sm:mt-0 ml-0 sm:ml-2.5 rounded-sm">
+              <div className="flex servcice-card-desc h-55 sm:h-80 w-full sm:w-auto flex-col justify-between p-3.5 sm:p-6 bg-[#171717] mt-4 lg:mt-2.5 sm:mt-0 ml-0 sm:ml-2.5 rounded-sm">
                 <div>
                   <p className="text-sm text-white font-semibold mb-2">
                     {item.id}

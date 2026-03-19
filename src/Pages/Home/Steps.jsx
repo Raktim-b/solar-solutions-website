@@ -9,7 +9,7 @@ const Steps = () => {
   return (
     <section className="py-10 sm:py-20 min-h-screen relative z-10 bg-[#f6f7f9]">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-15 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-15 items-start">
           <div className="relative sm:sticky top-0 sm:top-15">
             <PriTitle prititle="OUR WORKING steps" className="text-green-500" />
             <SubTitle
@@ -35,7 +35,7 @@ const Steps = () => {
                 style={{ top: `${110 + index * 10}px` }}
                 className={`${
                   index % 2 === 0 ? "bg-black rotate-0 md:-rotate-2" : "bg-[#212121] rotate-0 md:rotate-2"
-                } static sm:sticky w-full h-60 mt-0 sm:mt-10 sm:h-70 text-white p-5 sm:p-8 rounded-xl flex flex-col justify-between `}
+                } static sm:sticky w-full h-55 mt-0 sm:mt-10 sm:h-70 text-white p-5 sm:p-8 rounded-xl flex flex-col justify-between `}
               >
                 <div className="flex justify-between items-start">
                   <div>

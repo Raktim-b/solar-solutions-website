@@ -52,10 +52,7 @@ h4 {
 }
 
 /* Service  */
-.service-sec {
-  background: url(../public/Images/Service-bg.png) no-repeat center/cover;
-  background-attachment: fixed;
-}
+
 /* AutoScroll */
 @keyframes scroll-left {
   0% {

@@ -9,8 +9,14 @@ import { Link } from "react-router-dom";
 const Work = () => {
   return (
     <section className="bg-[#101010] relative z-10 px-0 sm:px-5 md:px-10 lg:px-15 xl:px-25">
+      
       <Container>
         <div className="py-10 md:py-20 min-h-screen relative overflow-hidden bg-black px-5">
+          <div
+        className="absolute inset-0 opacity-10 
+        bg-[radial-gradient(#ffffff_1px,transparent_1px)] 
+        bg-size-[20px_20px]"
+      />
           <div className="text-center">
             <PriTitle prititle="Our Works" className="text-green-400" />
             <SubTitle

@@ -9,6 +9,11 @@ import Autoscroll from "../../Components/AutoScroll/Autoscroll";
 const Service = () => {
   return (
     <section className="py-10 sm:py-20 overflow-hidden min-h-screen relative z-10 bg-black">
+      <div
+        className="absolute inset-0 opacity-10 
+        bg-[radial-gradient(#ffffff_1px,transparent_1px)] 
+        bg-size-[20px_20px]"
+      />
       <Container>
         <PriTitle prititle="OUR SERVICES" className="text-[#FFFCF3]" />
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
@@ -23,7 +28,7 @@ const Service = () => {
           />
           <ViewMore className="self-end md:self-center " contnt="View More" />
         </div>
-        <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-2.5">
+        <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-2.5 relative z-11">
           {serviceCard.map((item, index) => (
             <div
               key={index}

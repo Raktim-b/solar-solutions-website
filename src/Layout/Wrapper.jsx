@@ -1,32 +1,49 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Header/Navbar";
 import Footer from "../Components/Footer/Footer";
-import Loader from "../Components/Loader/Loader";
+// import Loader from "../Components/Loader/Loader";
 
 const Wrapper = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1500); // match loader animation time
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1500); // match loader animation time
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
+  //   return (
+  //     <>
+  //       {/* <Loader /> */}
+  //       {/* <div className="page-container"> */}
+  //       {/* <main className="page-content"> */}
+  //       <Navbar />
+  //       <Outlet />
+  //       <Footer />
+  //       {/* </main> */}
+  //       {/* </div> */}
+  //     </>
+  //   );
+  // };
+
   return (
-    <>
-      <Loader />
-      <div className="page-container">
-        <Navbar />
-        <main className="page-content">
-          <Outlet />
-        </main>
+    <div className="relative">
+      <Navbar />
+
+      {/* Main content */}
+      <main className="relative  bg-white">
+        <Outlet />
+      </main>
+
+      {/* Footer (revealed from behind) */}
+      <div className="sticky bottom-0">
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

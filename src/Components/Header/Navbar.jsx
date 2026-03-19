@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
 import PrimaryBtn from "../Buttons/PrimaryBtn";
 import Hamburger from "../Buttons/Hamburger";
 import { navLinks } from "../../Services/JSON/Navbar";
@@ -21,18 +21,18 @@ const Navbar = () => {
       document.documentElement.classList.remove("overflow-hidden");
     };
   }, [open]);
-  useGSAP(() => {
-    gsap.from(".navbar", {
-      y: -80,
-      opacity: 0,
-      duration: 1,
-      delay: 1, // slightly more than loader time
-      ease: "power3.out",
-    });
-  });
+  // useGSAP(() => {
+  //   gsap.from(".navbar", {
+  //     y: -80,
+  //     opacity: 0,
+  //     duration: 1,
+  //     delay: 1, // slightly more than loader time
+  //     ease: "power3.out",
+  //   });
+  // });
 
   return (
-    <header className="py-5 navbar fixed z-2 w-full ">
+    <header className="py-5 navbar fixed z-9 w-full ">
       <Container>
         <nav className="flex items-center justify-between md:justify-normal">
           <div className="nav-logo max-w-15 relative z-2">

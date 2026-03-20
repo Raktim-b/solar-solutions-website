@@ -64,12 +64,17 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
                     to={path}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `text-3xl md:text-[16px] uppercase  font-semibold md:font-medium transition-colors duration-300 ${
+                      `relative inline-block overflow-hidden group ${
                         isActive ? "text-green-500" : "text-white"
-                      } hover:text-green-500`
+                      }`
                     }
                   >
-                    {name}
+                    <span className="block text-3xl md:text-[16px] uppercase  font-semibold md:font-medium transition-transform duration-300 group-hover:-translate-y-full">
+                      {name}
+                    </span>
+                    <span className="absolute text-3xl md:text-[16px] uppercase  font-semibold md:font-medium left-0 top-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-green-500">
+                      {name}
+                    </span>
                   </NavLink>
                 </li>
               ))}

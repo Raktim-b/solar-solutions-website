@@ -42,7 +42,7 @@ const Service = () => {
                 />
               </figure>
 
-              <div className="flex servcice-card-desc h-55 sm:h-80 w-full sm:w-auto flex-col justify-between p-3.5 sm:p-6 bg-[#171717] mt-4 lg:mt-2.5 sm:mt-0 ml-0 sm:ml-2.5 rounded-sm">
+              <div className="flex servcice-card-desc h-55 sm:h-80 w-full sm:w-auto flex-col justify-between p-3.5 sm:p-6 bg-[#171717] mt-4 sm:mt-0 ml-0 sm:ml-2.5 rounded-sm">
                 <div>
                   <p className="text-sm text-white font-semibold mb-2">
                     {item.id}

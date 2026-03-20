@@ -25,7 +25,7 @@ export default function Accordion() {
           >
             <Typography
               component="span"
-              className="font-semibold! font-['Syne']! text-[16px] md:text-xl leading-6! text-white"
+              className="font-semibold! font-['Inter']! text-[16px] md:text-xl leading-6! text-white"
             >
               {item.title}
             </Typography>

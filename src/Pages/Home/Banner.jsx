@@ -24,7 +24,7 @@ const Banner = () => {
     });
   });
   return (
-    <section className="banner-sec sticky top-0 min-h-screen flex items-center z-8">
+    <section className="banner-sec sticky top-0 min-h-screen flex items-center sm:items-end pb-0 sm:pb-20 z-8">
       <Container>
         <div className="grid lg:grid-cols-[1fr_auto] items-end gap-7.5 mt=0 lg:mt-20">
           <div className="max-w-187.5 banner-cntn">

@@ -13,7 +13,7 @@ const items = [
 const AutoScroll = () => {
   return (
     <div
-      className="relative w-full overflow-hidden bg-black pt-6 select-none
+      className="relative w-full overflow-hidden  select-none
       mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
       [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
     >

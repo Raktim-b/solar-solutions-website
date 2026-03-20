@@ -9,7 +9,7 @@ const Steps = () => {
   return (
     <section className="py-10 sm:py-20 min-h-screen relative z-10 bg-[#f6f7f9]">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-15 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-25 items-start">
           <div className="relative sm:sticky top-0 sm:top-15">
             <PriTitle prititle="OUR WORKING steps" className="text-green-500" />
             <SubTitle

@@ -7,10 +7,10 @@ const SecondaryButton = ({ content, className, path }) => {
   return (
     <button
       onClick={() => navigate(path)}
-      className={`flex items-center cursor-pointer gap-4 bg-[#EDEDED] text-black rounded-lg py-1.25 pl-1.5 pr-6 group  transition ${className}`}
+      className={`flex items-center cursor-pointer gap-3 md:gap-4 bg-[#EDEDED] text-black rounded-lg py-1 md:py-1.25 pl-1 md:pl-1.5 pr-4 md:pr-6 group transition ${className}`}
     >
       {/* Icon Box */}
-      <span className="bg-black text-white p-2.75 rounded-lg flex items-center justify-center">
+      <span className="bg-black text-white p-2 md:p-2.75 rounded-lg flex items-center justify-center">
         <ArrowRight
           size={18}
           className="transition-transform duration-300 group-hover:translate-x-1"
@@ -18,7 +18,7 @@ const SecondaryButton = ({ content, className, path }) => {
       </span>
 
       {/* Text */}
-      <span className="font-medium text-lg">{content}</span>
+      <span className="font-medium text-base md:text-lg">{content}</span>
     </button>
   );
 };

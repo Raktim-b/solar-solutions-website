@@ -6,8 +6,35 @@ import { newsCard } from "../../Services/JSON/News";
 import CardTitle from "../../Services/Title/CardTitle";
 import { ArrowUpRight } from "lucide-react";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 const News = () => {
+  const isMobile = window.innerWidth < 768;
   const navigate = useNavigate();
+  const newsCardRef = useRef([]);
+  useEffect(() => {
+    gsap.fromTo(
+      newsCardRef.current,
+      {
+        y: 100,
+        opacity: 0,
+        filter: "blur(8px)",
+      },
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1,
+        stagger: 0.25,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: newsCardRef.current[0],
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+  }, []);
   return (
     <section className="py-10 sm:py-30 overflow-hidden min-h-auto lg:min-h-screen relative z-10 bg-white">
       <Container>
@@ -15,17 +42,28 @@ const News = () => {
           <PriTitle prititle="Our Blog" className="w-full md:w-2/5" />
           <SubTitle
             subtitle={
-              <>
-                <span className="ml-20 md:ml-30">Our Most Recent</span> Posts,
-                Stories, and Expert Insights that matter.
-              </>
+              isMobile
+                ? [
+                    <>
+                      <span className="ml-20 md:ml-30">
+                        Our Most Recent Posts, Stories,
+                      </span>
+                      and Expert Insights that matter.
+                    </>,
+                  ]
+                : [
+                    <span className="ml-20 md:ml-30">
+                      Our Most Recent Posts, Stories,
+                    </span>,
+                    <>and Expert Insights that matter.</>,
+                  ]
             }
-            className="text-[#242424] w-full md:w-3/5 mt-10! md:my-0!"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 md:mt-20">
           {newsCard.map((item, index) => (
             <div
+              ref={(el) => (newsCardRef.current[index] = el)}
               key={index}
               className="group cursor-pointer"
               onClick={() => navigate("/blog")}

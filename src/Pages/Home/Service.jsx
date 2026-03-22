@@ -5,9 +5,62 @@ import { serviceCard } from "../../Services/JSON/ServiceCard";
 import CardTitle from "../../Services/Title/CardTitle";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Service = () => {
   const navigate = useNavigate();
+  const cardRef = useRef([]);
+  const isMobile = window.innerWidth < 768;
+  useEffect(() => {
+    const cards = cardRef.current;
+    const topCards = cards.slice(0, 2); // first 2
+    const bottomCards = cards.slice(2); // rest
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: cards[0],
+        start: "top 55%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    tl.fromTo(
+      topCards,
+      {
+        y: 100,
+        opacity: 0,
+        scale: 0.95,
+        filter: "blur(8px)",
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        filter: "blur(0px)",
+        ease: "power3.out",
+      },
+    )
+
+      .fromTo(
+        bottomCards,
+        {
+          y: 100,
+          opacity: 0,
+          scale: 0.95,
+          filter: "blur(4px)",
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "+=0.2",
+      );
+  }, []);
   return (
     <section className="bg-[#101010] py-10 sm:py-30 overflow-hidden min-h-screen relative z-10 ">
       <img
@@ -29,17 +82,28 @@ const Service = () => {
           {/* RIGHT BIG TEXT */}
           <div className="lg:w-[75%]">
             <SubTitle
-              className="text-white "
               subtitle={
-                <>
-                  <span className="ml-40">
-                    Making the Solar Switch Easy and Affordable —{" "}
-                  </span>
-                  helping you transition to clean, renewable energy with
-                  reliable solutions that reduce costs and power a sustainable
-                  future.
-                </>
+                isMobile
+                  ? [
+                      <>
+                        <span className="ml-20">
+                          Making the Solar Switch Easy
+                        </span>{" "}
+                        and Affordable — helping you transition to clean,
+                        renewable energy with reliable solutions that reduce
+                        costs and power a sustainable future.
+                      </>,
+                    ]
+                  : [
+                      <span className="ml-40">
+                        Making the Solar Switch Easy and
+                      </span>,
+                      <>Affordable — helping you transition to clean,</>,
+                      <> renewable energy with reliable solutions that</>,
+                      <> reduce costs and power a sustainable future.</>,
+                    ]
               }
+              className="text-white"
             />
           </div>
         </div>
@@ -47,6 +111,7 @@ const Service = () => {
         <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-3">
           {serviceCard.map((item, index) => (
             <div
+              ref={(el) => (cardRef.current[index] = el)}
               onClick={() => navigate("/service")}
               key={index}
               className="relative group cursor-pointer rounded-lg overflow-hidden h-75 sm:h-120 shadow-md hover:shadow-xl transition"

@@ -29,12 +29,10 @@ const Footer = () => {
         </div>
         <div className="text-center max-w-full md:max-w-150 mx-auto">
           <SubTitle
-            subtitle={
-              <>
-                Power Your Home With{" "}
-                <span className="text-green-500">Smarter Energy</span>
-              </>
-            }
+            subtitle={[
+              <>Power Your Home With</>,
+              <span className="text-green-500">Smarter Energy</span>,
+            ]}
             className="text-white"
           />
           <p className="text-gray-400 font-semibold text-base sm:text-lg/snug mt-4">

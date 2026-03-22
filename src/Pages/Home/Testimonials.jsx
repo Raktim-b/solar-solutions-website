@@ -3,14 +3,40 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { test } from "../../Services/JSON/Testimonial";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
+import gsap from "gsap";
 
 const Testimonials = () => {
-  const swiperRef = useRef(null); // ✅ store swiper instance
+  const isMobile = window.innerWidth < 768;
+  const swiperRef = useRef(null);
+  const sectionRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(1);
+  useEffect(() => {
+    gsap.fromTo(
+      sectionRef.current,
+      {
+        y: 100,
+        opacity: 0,
+        filter: "blur(8px)",
+      },
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1,
+        stagger: 0.25,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+  }, []);
 
   return (
     <section className="test-sec py-10 sm:py-30 bg-black text-white relative z-10 overflow-hidden">
@@ -20,18 +46,29 @@ const Testimonials = () => {
           <PriTitle prititle="Testimonials" className="text-gray-400" />
           <div className="max-w-full text-center md:text-start md:max-w-3xl">
             <SubTitle
-              className="text-white!"
               subtitle={
-                <>
-                  <span className="ml-20"> Let’s See What Our </span> Clients
-                  Say About Our Quality, Commitment, and Results
-                </>
-              }
+                isMobile
+                  ? [
+                      <>
+                        <span className="ml-20">
+                          Let’s See What Our Clients Say
+                        </span>
+                        About Our Quality, Commitment, and Results
+                      </>,
+                    ]
+                  : [
+                      <span className="ml-20">
+                        Let’s See What Our Clients Say
+                      </span>,
+                      <> About Our Quality, Commitment,</>,
+                      <> and Results</>,
+                    ]
+              } className="text-white"
             />
           </div>
         </div>
 
-        <div className="max-w-full md:max-w-2/3 mx-auto">
+        <div ref={sectionRef} className="max-w-full md:max-w-2/3 mx-auto">
           {/* Slider */}
           <Swiper
             spaceBetween={50}

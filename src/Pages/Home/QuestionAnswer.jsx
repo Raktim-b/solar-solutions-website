@@ -5,6 +5,7 @@ import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
 
 const QuestionAnswer = () => {
+  const isMobile = window.innerWidth < 768;
   return (
     <section className="bg-[#f5f5f5] py-10 min-h-auto md:min-h-screen md:py-30 relative z-10">
       <Container>
@@ -16,11 +17,19 @@ const QuestionAnswer = () => {
 
               <SubTitle
                 subtitle={
-                  <>
-                    <span className="ml-10">Answering your questions</span>{" "}
-                    clearly and efficiently
-                  </>
-                }className="mt-8!"
+                  isMobile
+                    ? [
+                        <>
+                          <span className="ml-10">Answering your </span>
+                          questions clearly and efficiently
+                        </>,
+                      ]
+                    : [
+                        <span className="ml-10">Answering your </span>,
+                        <>questions clearly</>,
+                        <> and efficiently</>,
+                      ]
+                }
               />
             </div>
 

@@ -7,14 +7,15 @@ import PriTitle from "../../Services/Title/PriTitle";
 import AutoScroll from "../../Components/AutoScroll/Autoscroll";
 
 const About = () => {
-  const { ref, inView } = useInView({
+  const isMobile = window.innerWidth < 768;
+  const { ref: counterRef, inView } = useInView({
     triggerOnce: true,
     threshold: 0.4,
   });
 
   return (
     <section
-      ref={ref}
+      ref={counterRef}
       className="pt-10 sm:pt-30 bg-white z-10 min-h-auto md:min-h-screen relative overflow-hidden"
     >
       <Container>
@@ -33,19 +34,29 @@ const About = () => {
             <div className="">
               <SubTitle
                 subtitle={
-                  <>
-                    <span className="ml-32">
-                      {" "}
-                      The Future of Energy Starts Here —
-                    </span>{" "}
-                    Turn Sunlight into Savings and power your home with clean
-                    and sustainable solar solutions.
-                  </>
+                  isMobile
+                    ? [
+                        <>
+                          <span className="ml-20">
+                            The Future of Energy Starts
+                          </span>{" "}
+                          Here — Turn Sunlight into Savings and power your home
+                          with clean and sustainable solar solutions.
+                        </>,
+                      ]
+                    : [
+                        <span className="ml-32">
+                          The Future of Energy Starts
+                        </span>,
+                        <> Here — Turn Sunlight into Savings</>,
+                        <> and power your home with clean</>,
+                        <>and sustainable solar solutions.</>,
+                      ]
                 }
               />
 
               {/* Description */}
-              <p className="mt-6 font-semibold text-[#0000009e] text-base sm:text-lg/snug max-w-xl">
+              <p className="mt-10 font-semibold text-[#0000009e] text-base sm:text-lg/snug max-w-xl">
                 A multidisciplinary practice focused on thoughtful design,
                 sustainable materials, and high-quality execution. From
                 residential builds to large commercial projects, we shape

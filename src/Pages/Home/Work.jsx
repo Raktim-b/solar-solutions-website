@@ -15,8 +15,7 @@ const Work = () => {
 
   const leftRefs = useRef([]);
   const rightRefs = useRef([]);
-  const centerRef = useRef(null);
-
+  const isMobile = window.innerWidth < 768;
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -32,17 +31,19 @@ const Work = () => {
             y: 150,
             x: 250,
             opacity: 0,
+            filter: "blur(8px)",
             scale: 0.9,
           },
           {
             y: 0,
             x: 0,
             opacity: 1,
+            filter: "blur(0px)",
             scale: 1,
             ease: "power3.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 95%",
+              start: "top 85%",
               end: "top 20%",
               scrub: 1.5,
             },
@@ -59,12 +60,14 @@ const Work = () => {
             y: 150,
             x: -250,
             opacity: 0,
+            filter: "blur(4px)",
             scale: 0.9,
           },
           {
             y: 0,
             x: 0,
             opacity: 1,
+            filter: "blur(0px)",
             scale: 1,
             ease: "power3.out",
             scrollTrigger: {
@@ -109,14 +112,19 @@ const Work = () => {
 
           {/* CENTER TEXT */}
           <div
-            ref={centerRef}
             className="flex justify-start md:justify-center items-center 
              order-1 md:order-2 mb-10 md:mb-0 
              md:sticky md:top-0 md:h-screen"
           >
             <div className="flex flex-col items-start md:items-center text-start md:text-center max-w-2xl">
               <PriTitle prititle="Our Work" />
-              <SubTitle subtitle="Recently Completed Projects" />
+              <SubTitle
+                subtitle={
+                  isMobile
+                    ? ["Recently Completed, Projects"]
+                    : [<>Recently Completed </>, <>Projects</>]
+                }
+              />
               <SecondaryButton
                 content="View More"
                 className="bg-gray-300 mt-4"

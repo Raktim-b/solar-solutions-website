@@ -14,15 +14,16 @@ const Steps = () => {
             <PriTitle prititle="Our steps" />
             <SubTitle
               className="text-[#242424] mt-5"
-              subtitle={
-                <>
-                  <span className="ml-20 md:ml-40"> Experience, Innovation, and</span>{" "}
-                  Reliability — Delivering Advanced Solar Solutions You Can
-                  Trust
-                </>
-              }
+              subtitle={[
+                <span className="ml-20 md:ml-40">
+                  {" "}
+                  Experience, Innovation,{" "}
+                </span>,
+                <> and Reliability — Delivering</>,
+                <> Advanced Solar Solutions You Can Trust</>,
+              ]}
             />
-            <p className="font-semibold text-[#0000009e] text-base sm:text-lg/snug mt-4 max-w-lg">
+            <p className="font-semibold text-[#0000009e] text-base sm:text-lg/snug mt-10 md:mt-15 max-w-lg">
               Our solar installation process is designed to be simple,
               transparent, and efficient. From consultation to final activation,
               our experts ensure every step delivers reliable renewable energy

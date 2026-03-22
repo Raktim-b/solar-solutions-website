@@ -2,8 +2,8 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Header/Navbar";
 import Footer from "../Components/Footer/Footer";
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+// import { useEffect } from "react";
+// import Lenis from "@studio-freight/lenis";
 // import Loader from "../Components/Loader/Loader";
 
 const Wrapper = () => {
@@ -31,52 +31,52 @@ const Wrapper = () => {
   //     </>
   //   );
   // };
-  useEffect(() => {
-    let lenis;
-    let rafId;
+  // useEffect(() => {
+  //   let lenis;
+  //   let rafId;
 
-    const initLenis = () => {
-      // 👉 Only enable on desktop
-      if (window.innerWidth >= 768) {
-        lenis = new Lenis({
-          duration: 1, // slower = smoother
-          easing: (t) => 1 - Math.pow(1 - t, 4),
-          smooth: true,
-        });
+  //   const initLenis = () => {
+  //     // 👉 Only enable on desktop
+  //     if (window.innerWidth >= 768) {
+  //       lenis = new Lenis({
+  //         duration: 1, // slower = smoother
+  //         easing: (t) => 1 - Math.pow(1 - t, 4),
+  //         smooth: true,
+  //       });
 
-        const raf = (time) => {
-          lenis.raf(time);
-          rafId = requestAnimationFrame(raf);
-        };
+  //       const raf = (time) => {
+  //         lenis.raf(time);
+  //         rafId = requestAnimationFrame(raf);
+  //       };
 
-        rafId = requestAnimationFrame(raf);
-      }
-    };
+  //       rafId = requestAnimationFrame(raf);
+  //     }
+  //   };
 
-    const destroyLenis = () => {
-      if (lenis) {
-        lenis.destroy();
-        lenis = null;
-      }
-      if (rafId) cancelAnimationFrame(rafId);
-    };
+  //   const destroyLenis = () => {
+  //     if (lenis) {
+  //       lenis.destroy();
+  //       lenis = null;
+  //     }
+  //     if (rafId) cancelAnimationFrame(rafId);
+  //   };
 
-    // Initial check
-    initLenis();
+  //   // Initial check
+  //   initLenis();
 
-    // Handle resize (🔥 important)
-    const handleResize = () => {
-      destroyLenis();
-      initLenis();
-    };
+  //   // Handle resize (🔥 important)
+  //   const handleResize = () => {
+  //     destroyLenis();
+  //     initLenis();
+  //   };
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      destroyLenis();
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     destroyLenis();
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
   return (
     <div className="relative">
       <Navbar />

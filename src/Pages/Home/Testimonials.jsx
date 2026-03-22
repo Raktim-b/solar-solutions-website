@@ -1,103 +1,119 @@
-import React from "react";
-import SubTitle from "../../Services/Title/SubTitle";
-import PriTitle from "../../Services/Title/PriTitle";
-import ViewMore from "../../Components/Buttons/ViewMore";
-
-import { test } from "../../Services/JSON/Testimonial";
-import { Star } from "lucide-react";
 import Container from "../../Components/Container/Container";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { test } from "../../Services/JSON/Testimonial";
+import PriTitle from "../../Services/Title/PriTitle";
+import SubTitle from "../../Services/Title/SubTitle";
 
 const Testimonials = () => {
-  const leftCards = test.slice(0, 3);
-  const rightCards = test.slice(3, 6);
+  const swiperRef = useRef(null); // ✅ store swiper instance
+  const [activeIndex, setActiveIndex] = useState(1);
+
   return (
-    <section className="relative min-h-auto md:min-h-[230vh] z-20 bg-[#f6f7f9] grid grid-cols-1 md:grid-cols-3 pt-10 pb-10 md:pb-20 md:pt-0">
-      {/* LEFT CARDS */}
-      <div className="flex flex-col items-center md:items-end gap-5 sm:gap-10 md:gap-20 md:pt-[100vh] md:pr-6 order-2 md:order-1 mt-10 md:mt-0">
-        {leftCards.map((item, index) => (
-          <div
-            key={index}
-            className="max-w-70 md:max-w-100 h-70 md:h-80 bg-white rounded-lg sm:rounded-2xl shadow-xl p-4 sm:p-6 flex flex-col justify-between"
+    <section className="test-sec py-10 sm:py-30 bg-black text-white relative z-10 overflow-hidden">
+      <Container>
+        {/* Heading */}
+        <div className="mb-8 md:mb-16 flex flex-col md:flex-row gap-4 md:gap-50 items-start">
+          <PriTitle prititle="Testimonials" className="text-gray-400" />
+          <div className="max-w-full text-center md:text-start md:max-w-3xl">
+            <SubTitle
+              className="text-white!"
+              subtitle={
+                <>
+                  <span className="ml-20"> Let’s See What Our </span> Clients
+                  Say About Our Quality, Commitment, and Results
+                </>
+              }
+            />
+          </div>
+        </div>
+
+        <div className="max-w-full md:max-w-2/3 mx-auto">
+          {/* Slider */}
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            loop={true}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex + 1)}
+            className=""
           >
-            {/* Top */}
-            <div className="flex justify-between items-start">
-              <img src={item.imgSrc} className="w-10 sm:w-14" />
+            {test.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                  {/* Image */}
+                  <div className="max-w-70 h-90 md:h-95 rounded-lg overflow-hidden">
+                    <img
+                      src={item.imgSrc2}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
 
-              <div className="flex text-orange-500 gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={14} />
-                ))}
-              </div>
-            </div>
+                  {/* Content */}
+                  <div className=" max-w-xl ">
+                    <p className=" text-sm mb-2">{item.role}</p>
 
-            <p className="text-gray-500 text-sm sm:text-[16px] leading-relaxed">{item.desc}</p>
+                    <h3 className="text-2xl md:text-3xl font-semibold mb-3 md:mb-6">
+                      {item.name}
+                    </h3>
 
-            <div className="flex items-center gap-3">
-              <figure className="w-12.5 h-12.5 rounded-full overflow-hidden">
-                <img
-                  src={item.imgSrc2}
-                  className="w-full h-full object-cover"
-                />
-              </figure>
+                    <div className=" mb-4">
+                      <svg
+                        fill="#fff"
+                        width="40px"
+                        height="40px"
+                        viewBox="0 -5 34 34"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="m2.4 24h7.2l4.8-9.6v-14.4h-14.4v14.4h7.2zm19.2 0h7.2l4.8-9.6v-14.4h-14.4v14.4h7.2z" />
+                      </svg>
+                    </div>
 
-              <div>
-                <h4 className="font-medium">{item.name}</h4>
-                <p className="text-gray-400 text-sm">{item.role}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+                    <p className="text-base md:text-lg font-bold leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-      {/* CENTER TEXT */}
-      <div className="md:sticky md:top-0 md:h-screen flex justify-center items-center order-1 md:order-2">
-        <Container>
-          <div className="flex flex-col items-start md:items-center text-start md:text-center">
-            <PriTitle prititle="Testimonials" className="text-green-500" />
+          {/* Bottom Controls */}
+          <div className="flex justify-between items-center mt-16">
+            {/* Counter */}
+            <p className="text-2xl flex gap-2.5 items-center font-semibold">
+              {String(activeIndex).padStart(2, "0")}
+              <span className="text-gray-500 text-lg">
+                {" "}
+                /{String(test.length).padStart(2, "0")}
+              </span>
+            </p>
 
-            <SubTitle subtitle="Let’s See What Our Client Say" />
+            {/* Buttons */}
+            <div className="flex items-center gap-4">
+              {/* Prev */}
+              <button
+                onClick={() => swiperRef.current?.slidePrev()}
+                className="py-2 px-4 rounded-[20px] border border-gray-600 flex items-center justify-center hover:bg-white hover:text-black cursor-pointer transition"
+              >
+                <ArrowLeft size={18} />
+              </button>
 
-            <ViewMore contnt="View More" className="text-black" />
-          </div>
-        </Container>
-      </div>
-
-      {/* RIGHT CARDS */}
-      <div className="hidden md:flex flex-col items-center md:items-start gap-10 md:gap-20 md:pt-[80vh] md:pl-6 order-3 mt-10 md:mt-0">
-        {rightCards.map((item, index) => (
-          <div
-            key={index}
-            className="max-w-75 md:max-w-100 h-80 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between"
-          >
-            {/* Top */}
-            <div className="flex justify-between items-start">
-              <img src={item.imgSrc} className="w-14" />
-
-              <div className="flex text-orange-500 gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={14} />
-                ))}
-              </div>
-            </div>
-
-            <p className="text-gray-500 text-sm sm:text-[16px] leading-relaxed">{item.desc}</p>
-
-            <div className="flex items-center gap-3">
-              <figure className="w-12.5 h-12.5 rounded-full overflow-hidden">
-                <img
-                  src={item.imgSrc2}
-                  className="w-full h-full object-cover"
-                />
-              </figure>
-
-              <div>
-                <h4 className="font-medium">{item.name}</h4>
-                <p className="text-gray-400 text-sm">{item.role}</p>
-              </div>
+              {/* Next */}
+              <button
+                onClick={() => swiperRef.current?.slideNext()}
+                className="py-2 px-4 rounded-[20px] border border-green-500 text-green-500 flex items-center justify-center hover:bg-green-500 cursor-pointer hover:text-black transition"
+              >
+                <ArrowRight size={18} />
+              </button>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </Container>
     </section>
   );
 };

@@ -7,34 +7,37 @@ import SubTitle from "../../Services/Title/SubTitle";
 
 const Steps = () => {
   return (
-    <section className="py-10 sm:py-20 min-h-screen relative z-10 bg-[#f6f7f9]">
+    <section className="py-10 sm:py-30 min-h-screen relative z-10 bg-white">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-25 items-start">
-          <div className="relative sm:sticky top-0 sm:top-15">
-            <PriTitle prititle="OUR WORKING steps" className="text-green-500" />
+        <div className="flex flex-col md:flex-row gap-10 sm:gap-25 items-start">
+          <div className="relative  sm:sticky top-0 sm:top-15 w-full md:w-[65%]">
+            <PriTitle prititle="Our steps" />
             <SubTitle
-              className="text-[#242424]"
+              className="text-[#242424] mt-5"
               subtitle={
                 <>
-                  Experience, Innovation, and
-                  <span className="text-green-500"> Reliability</span>
+                  <span className="ml-20 md:ml-40"> Experience, Innovation, and</span>{" "}
+                  Reliability — Delivering Advanced Solar Solutions You Can
+                  Trust
                 </>
               }
             />
-            <p className="text-[16px]/[22px] md:text-lg/[26px] lg:text-xl/[30px] text-[#242424]/70 mt-4 max-w-md">
+            <p className="font-semibold text-[#0000009e] text-base sm:text-lg/snug mt-4 max-w-lg">
               Our solar installation process is designed to be simple,
               transparent, and efficient. From consultation to final activation,
               our experts ensure every step delivers reliable renewable energy
               tailored to your needs.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-5 sm:gap-75 w-full">
+          <div className="grid grid-cols-1 gap-5 sm:gap-85 w-full md:w-[45%]">
             {steps.map((item, index) => (
               <div
                 key={index}
                 style={{ top: `${110 + index * 10}px` }}
                 className={`${
-                  index % 2 === 0 ? "bg-black rotate-0 md:-rotate-2" : "bg-[#212121] rotate-0 md:rotate-2"
+                  index % 2 === 0
+                    ? "bg-black rotate-0 md:-rotate-2"
+                    : "bg-[#212121] rotate-0 md:rotate-2"
                 } static sm:sticky w-full h-55 mt-0 sm:mt-10 sm:h-70 text-white p-5 sm:p-8 rounded-xl flex flex-col justify-between `}
               >
                 <div className="flex justify-between items-start">

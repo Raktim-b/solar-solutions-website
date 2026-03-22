@@ -1,5 +1,4 @@
-import { Leaf, Zap, Sun, Wind, BatteryCharging, Globe } from "lucide-react";
-import { cloneElement } from "react";
+import { Zap, Leaf, Globe, Sun, Wind, BatteryCharging } from "lucide-react";
 
 const items = [
   { name: "Save Energy", icon: <Zap /> },
@@ -12,26 +11,18 @@ const items = [
 
 const AutoScroll = () => {
   return (
-    <div
-      className="relative w-full overflow-hidden  select-none
-      mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
-      [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
-    >
-      <div className="flex whitespace-nowrap overflow-hidden">
-        <div className="relative w-full">
-          <div className="absolute flex gap-4 animate-scroll">
-            {[...items, ...items].map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 px-4 py-2 border border-[#1a1a1a] bg-[#050505] rounded-md shrink-0"
-              >
-                {cloneElement(item.icon, {
-                  className: "w-4 h-4 text-green-400",
-                })}
-                <p className="text-white text-sm">{item.name}</p>
-              </div>
-            ))}
-          </div>
+    <div className="w-full border-y border-gray-200 bg-white overflow-hidden mask-fade">
+      <div className="relative h-20 md:h-30 flex items-center">
+        <div className="animate-scroll flex gap-6 sm:gap-10 md:gap-20 whitespace-nowrap items-center">
+          {[...items, ...items].map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-2 md:gap-3 text-gray-500 text-xl md:text-2xl font-medium min-w-50 justify-center"
+            >
+              <span className="text-3xl md:text-4xl opacity-70">{item.icon}</span>
+              {item.name}
+            </div>
+          ))}
         </div>
       </div>
     </div>

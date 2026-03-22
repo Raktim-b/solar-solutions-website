@@ -4,82 +4,79 @@ import { useInView } from "react-intersection-observer";
 import Container from "../../Components/Container/Container";
 import SubTitle from "../../Services/Title/SubTitle";
 import PriTitle from "../../Services/Title/PriTitle";
+import AutoScroll from "../../Components/AutoScroll/Autoscroll";
 
 const About = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.4,
-    rootMargin: "-80px 0px",
   });
 
   return (
     <section
       ref={ref}
-      className="py-10 sm:py-20 min-h-auto lg:min-h-screen relative z-10 bg-[#f2f2f2]"
+      className="pt-10 sm:pt-30 bg-white z-10 min-h-auto md:min-h-screen relative overflow-hidden"
     >
       <Container>
-        <div>
-          <PriTitle prititle="About us" className="text-green-500" />
+        <div className="flex flex-col md:flex-row gap-10 md:gap-20">
+          <div className="h-full w-full md:w-[45%] ">
+            <PriTitle prititle="About Us" />
+            <div className=" h-full w-full  pointer-events-none mt-5 md:mt-10">
+              <img
+                src="/Images/about-img1.png" // use your line-art image
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
 
-          <SubTitle
-            className="text-[#272628]"
-            subtitle={
-              <>
-                The Future of Energy Starts Here,Turn{" "}
-                <span className="text-green-500">Sunlight into Savings</span>
-              </>
-            }
-          />
+          <div className="flex flex-col w-full lg:w-[65%] lg:flex-row justify-between gap-10">
+            <div className="">
+              <SubTitle
+                subtitle={
+                  <>
+                    <span className="ml-32">
+                      {" "}
+                      The Future of Energy Starts Here —
+                    </span>{" "}
+                    Turn Sunlight into Savings and power your home with clean
+                    and sustainable solar solutions.
+                  </>
+                }
+              />
 
-          <p className="text-[16px]/[22px] md:text-lg/[26px] lg:text-xl/[30px] tracking-tighter text-[#545454]/70 mb-5">
-            Our solar panel solutions provide efficient, reliable, and
-            eco-friendly energy for homes and businesses. By converting sunlight
-            into sustainable power, we help reduce electricity costs while
-            supporting a cleaner, greener planet for future generations.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-2.5 mt-10 sm:mt-15 h-full">
-          {/* LEFT: STACKED STATS */}
-          <div className="grid grid-cols-2 md:grid-cols-1 gap-2.5 h-full">
-            {stats.map((item, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-lg h-40 md:h-60 bg-gray-200 flex flex-col justify-between"
-              >
-                <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold ">
-                  {inView && (
-                    <>
-                      <CountUp end={parseInt(item.number)} duration={3} />
-                      {item.number.includes("+") && "+"}
-                      {item.number.includes("%") && "%"}
-                    </>
-                  )}
-                </h3>
+              {/* Description */}
+              <p className="mt-6 font-semibold text-[#0000009e] text-base sm:text-lg/snug max-w-xl">
+                A multidisciplinary practice focused on thoughtful design,
+                sustainable materials, and high-quality execution. From
+                residential builds to large commercial projects, we shape
+                environments with clarity, and purpose.
+              </p>
 
-                <p className="opacity-80 text-[16px] sm:text-lg font-medium">
-                  {item.text}
-                </p>
+              {/* STATS */}
+              <div className="mt-14 grid grid-cols-3 gap-10">
+                {stats.map((item, index) => (
+                  <div key={index}>
+                    <h3 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-green-500">
+                      {inView && (
+                        <>
+                          <CountUp end={parseInt(item.number)} duration={3} />
+                          {item.number.includes("+") && "+"}
+                          {item.number.includes("%") && "%"}
+                        </>
+                      )}
+                    </h3>
+
+                    <p className="mt-2 text-gray-600 text-sm sm:text-base">
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          {/* CENTER IMAGE */}
-          <div className="grid grid-cols-2 col-span-2 gap-2.5 mt-2.5 md:mt-0">
-            <div className="h-70 sm:h-90 md:h-122.5">
-              <img
-                src="/Images/about-img1.jpg" // replace with your image
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-
-            {/* RIGHT IMAGE */}
-            <div className="h-70 sm:h-90 md:h-122.5">
-              <img
-                src="/Images/about-img2.jpg" // replace with your image
-                className="w-full h-full object-cover rounded-lg"
-              />
             </div>
           </div>
+        </div>
+        <div className="mt-10 md:mt-20">
+          <AutoScroll />
         </div>
       </Container>
     </section>

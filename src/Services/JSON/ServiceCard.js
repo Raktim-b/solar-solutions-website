@@ -15,7 +15,7 @@ export const serviceCard = [
     id: "03",
     imgSrc: "/Images/Service-card3.jpg",
     heading: "Industrial Solar Panels",
-    desc: "High-capacity solar installations engineered to meet large-scale industrial energy demands.",
+    desc: "High-capacity solar installations engineered to meet large-scale industrial energy demands efficiently.",
   },
 
   {

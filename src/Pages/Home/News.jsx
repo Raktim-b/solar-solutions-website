@@ -2,31 +2,28 @@ import { useNavigate } from "react-router-dom";
 import Container from "../../Components/Container/Container";
 import SubTitle from "../../Services/Title/SubTitle";
 import PriTitle from "../../Services/Title/PriTitle";
-import ViewMore from "../../Components/Buttons/ViewMore";
 import { newsCard } from "../../Services/JSON/News";
 import CardTitle from "../../Services/Title/CardTitle";
 import { ArrowUpRight } from "lucide-react";
+import SecondaryButton from "../../Components/Buttons/SecondaryButton";
 const News = () => {
   const navigate = useNavigate();
   return (
-    <section className="py-10 sm:py-20 overflow-hidden min-h-auto lg:min-h-screen relative z-10 bg-[#f6f7f9]">
+    <section className="py-10 sm:py-30 overflow-hidden min-h-auto lg:min-h-screen relative z-10 bg-white">
       <Container>
-        <PriTitle prititle="OUR SERVICES" className="text-green-500" />
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start  justify-between">
+          <PriTitle prititle="Our Blog" className="w-full md:w-1/2" />
           <SubTitle
             subtitle={
               <>
-                Our Most Recent <span className="text-green-500">Posts</span>
+                <span className="ml-20 md:ml-30">Our Most Recent</span> Posts, Stories,
+                and Expert Insights
               </>
             }
-            className="text-[#242424]"
-          />
-          <ViewMore
-            className="self-end md:self-center text-[#242424]! hover:text-green-500!"
-            contnt="View More"
+            className="text-[#242424] w-full md:w-1/2 mt-10! md:my-0!"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 md:mt-20">
           {newsCard.map((item, index) => (
             <div
               key={index}
@@ -34,11 +31,11 @@ const News = () => {
               onClick={() => navigate("/blog")}
             >
               {/* Image */}
-              <div className="overflow-hidden relative h-55 sm:h-90 lg:h-120 w-full rounded-xl">
+              <div className="overflow-hidden relative h-55 sm:h-90 lg:h-140 w-full rounded-md">
                 <img
                   src={item.imgSrc}
                   alt={item.title}
-                  className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
                 />
                 <button
                   onClick={() => navigate("/blog")}
@@ -57,9 +54,14 @@ const News = () => {
               {/* Title */}
               <CardTitle cardtitle={item.title} />
               {/* Description */}
-              <p className="text-gray-500 mt-2  leading-relaxed">{item.desc}</p>
+              <p className="text-gray-500 mt-2 font-medium text-base sm:text-lg/snug">
+                {item.desc}
+              </p>
             </div>
           ))}
+        </div>
+        <div className="mt-20 flex justify-end">
+          <SecondaryButton content="Learn More" className="bg-gray-300" />
         </div>
       </Container>
     </section>

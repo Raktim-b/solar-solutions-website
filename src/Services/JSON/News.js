@@ -10,7 +10,7 @@ export const newsCard = [
     date: "13 OCT 2025",
     timetake: "12 min to read",
     title: "Top Benefits of Installing Solar Panels",
-    desc: "Installing solar panels helps lower electricity bills while reducing your carbon footprint. Solar energy ",
+    desc: "Installing solar panels helps lower electricity bills while reducing your carbon footprint. Solar energy powers your future. ",
     imgSrc: "/Images/News-img2.png",
   },
   {

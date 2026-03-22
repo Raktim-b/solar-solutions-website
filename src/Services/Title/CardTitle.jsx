@@ -1,6 +1,8 @@
-const CardTitle = ({ cardtitle }) => {
+const CardTitle = ({ cardtitle, className }) => {
   return (
-    <h3 className="text-[22px] sm:text-lg md:text-[26px]/[28px] tracking-tighter  font-semibold select-none ">
+    <h3
+      className={` uppercase text-lg md:text-[20px]/[22px] tracking-tighter ${className} font-semibold select-none `}
+    >
       {cardtitle}
     </h3>
   );

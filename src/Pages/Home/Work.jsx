@@ -1,61 +1,147 @@
-import React from "react";
-import Container from "../../Components/Container/Container";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
 import { workCard } from "../../Services/JSON/Work";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import SecondaryButton from "../../Components/Buttons/SecondaryButton";
 import CardTitle from "../../Services/Title/CardTitle";
-import { Link } from "react-router-dom";
+import Container from "../../Components/Container/Container"; // ✅ added
 
 const Work = () => {
+  const leftCards = workCard.slice(0, 2);
+  const rightCards = workCard.slice(2, 4);
+
+  const leftRefs = useRef([]);
+  const rightRefs = useRef([]);
+  const centerRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      leftRefs.current.forEach((el) => {
+        if (!el) return;
+
+        gsap.fromTo(
+          el,
+          {
+            y: 150,
+            x: 250,
+            opacity: 0,
+            scale: 0.9,
+          },
+          {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            scale: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 95%",
+              end: "top 20%",
+              scrub: 1.5,
+            },
+          },
+        );
+      });
+
+      rightRefs.current.forEach((el) => {
+        if (!el) return;
+
+        gsap.fromTo(
+          el,
+          {
+            y: 150,
+            x: -250,
+            opacity: 0,
+            scale: 0.9,
+          },
+          {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            scale: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              end: "top 25%",
+              scrub: 1.5,
+            },
+          },
+        );
+      });
+    });
+
+    return () => mm.revert();
+  }, []);
+
   return (
-    <section className="bg-[#101010] relative z-10 px-0 sm:px-5 md:px-10 lg:px-15 xl:px-25">
+    <section className="relative md:min-h-screen z-20 bg-[#f5f5f5] py-10 md:py-30">
       <Container>
-        <div className="py-10 md:py-20 min-h-screen relative overflow-hidden bg-black px-5">
-          <div
-            className="absolute inset-0 opacity-10 
-        bg-[radial-gradient(#ffffff_1px,transparent_1px)] 
-        bg-size-[20px_20px]"
-          />
-          <div className="text-center">
-            <PriTitle prititle="Our Works" className="text-green-400" />
-            <SubTitle
-              subtitle="Recently Completed Projects"
-              className="text-white"
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 sm:mt-20">
-            {workCard.map(({ type, name, imgSrc }, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          {/* LEFT CARDS */}
+          <div className="flex flex-col items-center md:items-end gap-4 md:gap-[30vh] md:pt-[100vh] md:pr-6 order-2 md:order-1 mt-3 md:mt-0">
+            {leftCards.map((item, index) => (
               <div
                 key={index}
-                className={`relative group overflow-hidden h-55 sm:h-90 lg:h-115 xl:h-135 rounded-sm cursor-pointer
-                ${index === 0 ? "md:col-span-2" : "md:col-span-1"}`}
+                ref={(el) => (leftRefs.current[index] = el)}
+                className="w-full  h-80 md:h-140 cursor-pointer rounded-lg group overflow-hidden"
               >
-                <img
-                  src={imgSrc}
-                  alt={name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 z-10 text-white ">
-                  <CardTitle cardtitle={name} />
+                <div className="w-full h-full relative">
+                  <img
+                    src={item.imgSrc}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 w-full p-1 md:p-3 translate-y-0 md:translate-y-full transition-transform duration-300 ease-linear group-hover:translate-y-0 bg-[#f5f5f5] text-black">
+                    <CardTitle cardtitle={item.name} />
+                  </div>
                 </div>
+              </div>
+            ))}
+          </div>
 
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                <div
-                  className="absolute top-2 left-6 flex flex-col justify-center 
-                opacity-0 group-hover:opacity-100 transition duration-500"
-                >
-                  <p className="text-green-400 ">{type}</p>
+          {/* CENTER TEXT */}
+          <div
+            ref={centerRef}
+            className="flex justify-start md:justify-center items-center 
+             order-1 md:order-2 mb-10 md:mb-0 
+             md:sticky md:top-0 md:h-screen"
+          >
+            <div className="flex flex-col items-start md:items-center text-start md:text-center max-w-2xl">
+              <PriTitle prititle="Our Work" />
+              <SubTitle subtitle="Recently Completed Projects" />
+              <SecondaryButton
+                content="View More"
+                className="bg-gray-300 mt-4"
+                path="/project"
+              />
+            </div>
+          </div>
 
-                  <h3 className="text-white text-2xl font-semibold">{name}</h3>
-                </div>
-                <div className="absolute top-0 right-0 h-7 md:h-9 rounded-tr-sm w-1/4 bg-black flex items-center justify-center transform translate-y-0 md:-translate-y-20 group-hover:translate-y-0 transition duration-500">
-                  <Link
-                    to="/Project"
-                    className="text-white text-[12px] md:text-sm uppercase font-bold tracking-tight"
-                  >
-                    Learn More
-                  </Link>
+          {/* RIGHT CARDS */}
+          <div className="flex md:flex flex-col items-center md:items-start gap-4 md:gap-[30vh] md:pt-[80vh] md:pl-6 order-3 mt-4 md:mt-0">
+            {rightCards.map((item, index) => (
+              <div
+                key={index}
+                ref={(el) => (rightRefs.current[index] = el)}
+                className="w-full h-80 md:h-140 cursor-pointer rounded-lg group overflow-hidden"
+              >
+                <div className="w-full h-full relative">
+                  <img
+                    src={item.imgSrc}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 w-full p-1 md:p-3 translate-y-0 md:translate-y-full transition-transform duration-300 ease-linear group-hover:translate-y-0 bg-[#f5f5f5] text-black">
+                    <CardTitle cardtitle={item.name} />
+                  </div>
                 </div>
               </div>
             ))}

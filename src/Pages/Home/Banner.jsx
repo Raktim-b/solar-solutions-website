@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Container from "../../Components/Container/Container";
 import MainTitle from "../../Services/Title/MainTitle";
-import SecondaryBtn from "../../Components/Buttons/SecondaryBtn";
+import SecondaryButton from "../../Components/Buttons/SecondaryButton";
 
 const Banner = () => {
-  const navigate = useNavigate();
   useGSAP(() => {
     gsap.from(".banner-cntn", {
       x: -180,
@@ -47,11 +45,7 @@ const Banner = () => {
           </div>
 
           <div className="lg:self-end banner-btn">
-            <SecondaryBtn
-              name="Contact Now"
-              onclick={() => navigate("/contact")}
-              className="text-white hover:text-white"
-            />
+            <SecondaryButton content="Contact Now" path="/contact" />
           </div>
         </div>
       </Container>

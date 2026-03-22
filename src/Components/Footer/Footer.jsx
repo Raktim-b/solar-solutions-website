@@ -3,7 +3,7 @@ import { FacebookOutlined } from "@mui/icons-material";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { navLinks } from "../../Services/JSON/Navbar";
-import SecondaryBtn from "../Buttons/SecondaryBtn";
+import SecondaryButton from "../Buttons/SecondaryButton";
 import Container from "../Container/Container";
 import SubTitle from "../../Services/Title/SubTitle";
 
@@ -41,7 +41,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex items-center justify-center mt-5 sm:mt-8">
-          <SecondaryBtn
+          <SecondaryButton
             name="Contact Now"
             onclick={() => navigate("/contact")}
             className="text-black hover:text-white"

@@ -7,5 +7,8 @@ export const stats = [
     number: "5+",
     text: "Years of Expertise",
   },
-  
+  {
+    number: "98%",
+    text: "Satisfied Customer",
+  },
 ];

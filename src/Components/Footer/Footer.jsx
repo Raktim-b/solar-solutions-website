@@ -11,14 +11,14 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-black text-white relative py-10 sm:py-20 overflow-hidden z-10">
-      <div
-        className="absolute inset-0 opacity-10 
-        bg-[radial-gradient(#ffffff_1px,transparent_1px)] 
-        bg-size-[20px_20px]"
+    <footer className="bg-[#101010] text-white  relative py-10 sm:py-20  overflow-hidden z-10">
+      <img
+        src="/Images/Sec-bg.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
       />
       <Container>
-        <div className="max-w-15 relative z-2 mx-auto mb-8">
+        <div className="max-w-15 relative z-11 mx-auto mb-8">
           <Link to="/" className="w-full h-full">
             <img
               src={"Images/Logo.png"}
@@ -35,16 +35,17 @@ const Footer = () => {
                 <span className="text-green-500">Smarter Energy</span>
               </>
             }
+            className="text-white"
           />
-          <p className="text-gray-400 mt-4">
+          <p className="text-gray-400 font-semibold text-base sm:text-lg/snug mt-4">
             Switch to clean, affordable solar solutions and start saving today.
           </p>
         </div>
-        <div className="flex items-center justify-center mt-5 sm:mt-8">
+        <div className="flex items-center relative z-11 justify-center mt-5 sm:mt-8">
           <SecondaryButton
-            name="Contact Now"
-            onclick={() => navigate("/contact")}
-            className="text-black hover:text-white"
+            content="Contact Now"
+            path="/contact"
+            className="text-black "
           />
         </div>
         <div className="flex flex-wrap justify-center items-center gap-3 mt-8 text-gray-300 relative z-11">

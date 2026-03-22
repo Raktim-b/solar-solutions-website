@@ -12,15 +12,15 @@ const News = () => {
     <section className="py-10 sm:py-30 overflow-hidden min-h-auto lg:min-h-screen relative z-10 bg-white">
       <Container>
         <div className="flex flex-col md:flex-row items-start  justify-between">
-          <PriTitle prititle="Our Blog" className="w-full md:w-1/2" />
+          <PriTitle prititle="Our Blog" className="w-full md:w-2/5" />
           <SubTitle
             subtitle={
               <>
-                <span className="ml-20 md:ml-30">Our Most Recent</span> Posts, Stories,
-                and Expert Insights
+                <span className="ml-20 md:ml-30">Our Most Recent</span> Posts,
+                Stories, and Expert Insights that matter.
               </>
             }
-            className="text-[#242424] w-full md:w-1/2 mt-10! md:my-0!"
+            className="text-[#242424] w-full md:w-3/5 mt-10! md:my-0!"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 md:mt-20">
@@ -54,7 +54,7 @@ const News = () => {
               {/* Title */}
               <CardTitle cardtitle={item.title} />
               {/* Description */}
-              <p className="text-gray-500 mt-2 font-medium text-base sm:text-lg/snug">
+              <p className="text-gray-500 mt-2 font-medium text-base sm:text-lg/normal">
                 {item.desc}
               </p>
             </div>

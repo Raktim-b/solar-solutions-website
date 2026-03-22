@@ -4,7 +4,7 @@
 @import "tailwindcss";
 
 body {
-  background: #fff;
+  background: #000;
   font-family: "Inter", sans-serif !important;
   background-color: white;
   overflow-x: hidden;

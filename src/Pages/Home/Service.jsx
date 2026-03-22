@@ -4,8 +4,10 @@ import SubTitle from "../../Services/Title/SubTitle";
 import { serviceCard } from "../../Services/JSON/ServiceCard";
 import CardTitle from "../../Services/Title/CardTitle";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";
+import { useNavigate } from "react-router-dom";
 
 const Service = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-[#101010] py-10 sm:py-30 overflow-hidden min-h-screen relative z-10 ">
       <img
@@ -45,8 +47,9 @@ const Service = () => {
         <div className="mt-10 sm:mt-15 grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-3">
           {serviceCard.map((item, index) => (
             <div
+              onClick={() => navigate("/service")}
               key={index}
-              className="relative group rounded-lg overflow-hidden h-75 sm:h-120 shadow-md hover:shadow-xl transition"
+              className="relative group cursor-pointer rounded-lg overflow-hidden h-75 sm:h-120 shadow-md hover:shadow-xl transition"
             >
               {/* Image */}
               <img

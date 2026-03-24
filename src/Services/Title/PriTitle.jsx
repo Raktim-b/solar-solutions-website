@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -8,7 +9,8 @@ const PriTitle = ({ prititle, className }) => {
   const smallhdrRef = useRef(null);
   const charsRef = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
+    if (window.innerWidth < 768) return;
     if (!charsRef.current.length) return;
 
     gsap.fromTo(

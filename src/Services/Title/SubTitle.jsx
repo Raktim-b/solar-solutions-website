@@ -1,13 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SubTitle = ({ subtitle = [], className = "" }) => {
   const rightRef = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
+    if (window.innerWidth < 768) return;
     if (!rightRef.current.length) return;
 
     gsap.fromTo(

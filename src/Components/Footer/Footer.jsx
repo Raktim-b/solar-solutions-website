@@ -6,12 +6,31 @@ import { navLinks } from "../../Services/JSON/Navbar";
 import SecondaryButton from "../Buttons/SecondaryButton";
 import Container from "../Container/Container";
 import SubTitle from "../../Services/Title/SubTitle";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Footer = () => {
   const navigate = useNavigate();
-
+  const footerRef = useRef(null);
+  useGSAP(() => {
+    if (window.innerWidth < 768) return;
+    gsap.fromTo(
+      footerRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        delay: 2.4,
+      },
+    );
+  });
   return (
-    <footer className="bg-[#101010] text-white  relative py-10 sm:py-20  overflow-hidden z-10">
+    <footer
+      ref={footerRef}
+      className="bg-[#101010] text-white  relative py-10 sm:py-20  overflow-hidden z-7"
+    >
       <img
         src="/Images/Sec-bg.png"
         alt=""

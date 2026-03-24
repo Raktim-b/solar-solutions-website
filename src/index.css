@@ -32,7 +32,7 @@ body {
 /* Banner */
 .banner-sec {
   /* background: url("/Images/Banner-bg.webp") no-repeat top/cover; */
-  background: url("/public/Images/Banner-img.avif") no-repeat center/cover;
+  background: url("/public/Images/Banner-img.jpg") no-repeat bottom/cover;
   /* background-attachment: fixed; */
 }
 
@@ -42,7 +42,7 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.25),
     rgba(0, 0, 0, 0.35),
     rgba(0, 0, 0, 0.45)
   );

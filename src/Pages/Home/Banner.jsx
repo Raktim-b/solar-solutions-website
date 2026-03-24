@@ -3,37 +3,50 @@ import gsap from "gsap";
 import Container from "../../Components/Container/Container";
 import MainTitle from "../../Services/Title/MainTitle";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";
+import { useRef } from "react";
 
 const Banner = () => {
+  const bannerRef = useRef(null);
   useGSAP(() => {
-    gsap.from(".banner-cntn", {
-      x: -180,
-      opacity: 0,
-      duration: 1.2,
-      delay: 0.3,
-      ease: "power3.out",
-    });
+    if (window.innerWidth < 768) return;
+    gsap.fromTo(
+      bannerRef.current,
+      {
+        scale: 1.4,
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 2,
+        delay: 1,
+        ease: "power3.out",
+      },
+    );
     gsap.from(".banner-btn", {
       x: 180,
       opacity: 0,
       duration: 1.3,
-      delay: 0.4,
+      delay: 1.6,
       ease: "power3.out",
     });
   });
   return (
-    <section className="banner-sec sticky top-0 min-h-screen flex items-center sm:items-end pb-0 sm:pb-20 z-8">
+    <section
+      ref={bannerRef}
+      className="banner-sec sticky top-0 min-h-screen flex items-end pb-20 z-8"
+    >
       <Container>
-        <div className="grid lg:grid-cols-[1fr_auto] items-end gap-7.5 mt=0 lg:mt-20">
-          <div className="max-w-250 banner-cntn">
+        <div className="grid lg:grid-cols-[1fr_auto] items-center gap-7.5 ">
+          <div className="max-w-250 ">
             <MainTitle
               className="text-white"
-              maintitle={
+              maintitle={[
+                <>Solar Solutions for </>,
                 <>
-                  Advanced Solar Solutions for Modern{" "}
-                  <span className="text-green-500">Living</span>
-                </>
-              }
+                  Modern <span className="text-green-500">Living</span>
+                </>,
+              ]}
             />
 
             <p className="text-[16px]/[22px] md:text-lg/[26px] lg:text-xl/[30px] text-[#f8f5ec] font-medium pt-5 relative z-2">
@@ -44,7 +57,7 @@ const Banner = () => {
             </p>
           </div>
 
-          <div className="lg:self-end banner-btn">
+          <div className="lg:self-end banner-btn relative z-11">
             <SecondaryButton content="Contact Now" path="/contact" />
           </div>
         </div>

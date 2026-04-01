@@ -1,4 +1,4 @@
-import { stats } from "../../Services/JSON/About";
+import { stats } from "../../Services/JSON/Home/About";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import Container from "../../Components/Container/Container";
@@ -24,7 +24,7 @@ const About = () => {
             <PriTitle prititle="About Us" />
             <div className=" h-full w-full  pointer-events-none mt-5 md:mt-10">
               <img
-                src="/Images/about-img1.png" // use your line-art image
+                src="/Images/Home/about-img1.png" // use your line-art image
                 className="w-full h-full object-cover"
               />
             </div>

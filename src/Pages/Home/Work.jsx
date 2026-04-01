@@ -1,6 +1,6 @@
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
-import { workCard } from "../../Services/JSON/Work";
+import { workCard } from "../../Services/JSON/Home/Work";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";

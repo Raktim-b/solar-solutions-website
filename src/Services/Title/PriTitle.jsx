@@ -17,17 +17,17 @@ const PriTitle = ({ prititle, className }) => {
       charsRef.current,
       {
         x: -200,
-        y: 100,
+        // y: 100,
         opacity: 0,
         filter: "blur(4px)",
       },
       {
         x: 0,
-        y: 0,
+        // y: 0,
         opacity: 1,
         duration: 0.6,
         filter: "blur(0px)",
-        stagger: 0.08,
+        stagger: -0.08,
         ease: "power3.out",
         scrollTrigger: {
           trigger: smallhdrRef.current,

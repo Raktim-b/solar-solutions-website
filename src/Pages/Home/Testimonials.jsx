@@ -4,7 +4,7 @@ import "swiper/css";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { test } from "../../Services/JSON/Testimonial";
+import { test } from "../../Services/JSON/Home/Testimonial";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
 import gsap from "gsap";

@@ -1,7 +1,7 @@
 import Container from "../../Components/Container/Container";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
-import { serviceCard } from "../../Services/JSON/ServiceCard";
+import { serviceCard } from "../../Services/JSON/Home/ServiceCard";
 import CardTitle from "../../Services/Title/CardTitle";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";
 import { useNavigate } from "react-router-dom";
@@ -64,7 +64,7 @@ const Service = () => {
   return (
     <section className="bg-[#101010] py-10 sm:py-30 overflow-hidden min-h-screen relative z-10 ">
       <img
-        src="/Images/Sec-bg.png"
+        src="/Images/Home/Sec-bg.png"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />

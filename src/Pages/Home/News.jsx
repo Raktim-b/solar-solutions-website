@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Container from "../../Components/Container/Container";
 import SubTitle from "../../Services/Title/SubTitle";
 import PriTitle from "../../Services/Title/PriTitle";
-import { newsCard } from "../../Services/JSON/News";
+import { newsCard } from "../../Services/JSON/Home/News";
 import CardTitle from "../../Services/Title/CardTitle";
 import { ArrowUpRight } from "lucide-react";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";

@@ -1,6 +1,6 @@
 import Container from "../../Components/Container/Container";
 // import { processCard } from "../../Services/JSON/Process";
-import { steps } from "../../Services/JSON/Step";
+import { steps } from "../../Services/JSON/Home/Step";
 import CardTitle from "../../Services/Title/CardTitle";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";

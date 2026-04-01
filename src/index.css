@@ -32,7 +32,7 @@ body {
 /* Banner */
 .banner-sec {
   /* background: url("/Images/Banner-bg.webp") no-repeat top/cover; */
-  background: url("/public/Images/Banner-img.jpg") no-repeat bottom/cover;
+  background: url("/public/Images/Home/Banner-img.jpg") no-repeat bottom/cover;
   /* background-attachment: fixed; */
 }
 
@@ -95,7 +95,7 @@ body {
 }
 /* Testimonial */
 .test-sec {
-  background: url("/public/Images/Testi-bg.jpg") no-repeat center/cover;
+  background: url("/public/Images/Home/Testi-bg.jpg") no-repeat center/cover;
 }
 
 /* Accordian */

@@ -59,7 +59,7 @@ const Navbar = () => {
           <div className="nav-logo max-w-15 relative z-2">
             <Link to="/" className="w-full h-full">
               <img
-                src={"Images/Logo.png"}
+                src={"Images/Home/Logo.png"}
                 alt=""
                 className="w-full h-full object-cover"
               />

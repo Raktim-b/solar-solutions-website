@@ -4,7 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
-import { accor } from "../JSON/Accordian";
+import { accor } from "../JSON/Home/Accordian";
 
 export default function Accordion() {
   const [expanded, setExpanded] = useState(accor[0].id);

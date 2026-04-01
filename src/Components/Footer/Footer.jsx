@@ -32,7 +32,7 @@ const Footer = () => {
       className="bg-[#101010] text-white  relative py-10 sm:py-20  overflow-hidden z-7"
     >
       <img
-        src="/Images/Sec-bg.png"
+        src="/Images/Home/Sec-bg.png"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="max-w-15 relative z-11 mx-auto mb-8">
           <Link to="/" className="w-full h-full">
             <img
-              src={"Images/Logo.png"}
+              src={"Images/Home/Logo.png"}
               alt=""
               className="w-full h-full object-cover"
             />

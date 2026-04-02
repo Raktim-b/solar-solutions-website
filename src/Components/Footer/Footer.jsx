@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FacebookOutlined } from "@mui/icons-material";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -12,6 +12,7 @@ import gsap from "gsap";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const footerRef = useRef(null);
   useGSAP(() => {
     if (window.innerWidth < 768) return;
@@ -25,7 +26,7 @@ const Footer = () => {
         delay: 2.4,
       },
     );
-  });
+  }, [location.pathname]);
   return (
     <footer
       ref={footerRef}

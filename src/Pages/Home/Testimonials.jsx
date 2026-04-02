@@ -60,10 +60,17 @@ const Testimonials = () => {
                       <span className="ml-20">
                         Let’s See What Our Clients Say
                       </span>,
-                      <> About Our Quality, Commitment,</>,
-                      <> and Results</>,
+                      <>
+                        {" "}
+                        About Our{" "}
+                        <span className="text-green-500">
+                          Quality, Commitment,
+                        </span>
+                      </>,
+                      <span className="text-green-500"> and Results</span>,
                     ]
-              } className="text-white"
+              }
+              className="text-white"
             />
           </div>
         </div>

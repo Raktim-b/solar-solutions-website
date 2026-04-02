@@ -21,13 +21,22 @@ const QuestionAnswer = () => {
                     ? [
                         <>
                           <span className="ml-10">Answering your </span>
-                          questions clearly and efficiently
+                          questions{" "}
+                          <span className="text-green-500">
+                            clearly and efficiently
+                          </span>
                         </>,
                       ]
                     : [
                         <span className="ml-10">Answering your </span>,
-                        <>questions clearly</>,
-                        <> and efficiently</>,
+                        <>
+                          questions{" "}
+                          <span className="text-green-500">clearly</span>
+                        </>,
+                        <span className="text-green-500">
+                          {" "}
+                          and efficiently
+                        </span>,
                       ]
                 }
               />

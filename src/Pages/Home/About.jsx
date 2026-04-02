@@ -41,7 +41,10 @@ const About = () => {
                             The Future of Energy Starts
                           </span>{" "}
                           Here — Turn Sunlight into Savings and power your home
-                          with clean and sustainable solar solutions.
+                          with clean and{" "}
+                          <span className="text-green-500">
+                            sustainable solar solutions.
+                          </span>
                         </>,
                       ]
                     : [
@@ -50,7 +53,12 @@ const About = () => {
                         </span>,
                         <> Here — Turn Sunlight into Savings</>,
                         <> and power your home with clean</>,
-                        <>and sustainable solar solutions.</>,
+                        <>
+                          and{" "}
+                          <span className="text-green-500">
+                            sustainable solar solutions.
+                          </span>
+                        </>,
                       ]
                 }
               />

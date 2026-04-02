@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 // import { useGSAP } from "@gsap/react";
 // import gsap from "gsap";
 import PrimaryBtn from "../Buttons/PrimaryBtn";
@@ -11,6 +11,7 @@ import gsap from "gsap";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
   const navRef = useRef(null);
   useEffect(() => {
     open
@@ -48,7 +49,7 @@ const Navbar = () => {
         ease: "power3.out",
       },
     );
-  });
+  }, [location.pathname]);
   return (
     <header className="py-5 navbar fixed z-9 w-full ">
       <Container>
@@ -79,7 +80,7 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
               {navLinks.map(({ id, name, path }) => (
                 <li
                   key={id}
-                  className="mb-4.5 md:mb-0 mr-0 md:mr-5.5 lg:mr-7.5 last:mr-0"
+                  className="mb-4.5 md:mb-0 mr-0 md:mr-5 lg:mr-7 last:mr-0"
                 >
                   <NavLink
                     to={path}
@@ -90,10 +91,10 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
                       }`
                     }
                   >
-                    <span className="block text-3xl md:text-[16px] uppercase  font-semibold md:font-medium transition-transform duration-300 group-hover:-translate-y-full">
+                    <span className="block text-3xl md:text-base uppercase font-bold  transition-transform duration-300 group-hover:-translate-y-full">
                       {name}
                     </span>
-                    <span className="absolute text-3xl md:text-[16px] uppercase  font-semibold md:font-medium left-0 top-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-green-500">
+                    <span className="absolute text-3xl md:text-base uppercase font-semibold left-0 top-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-green-500">
                       {name}
                     </span>
                   </NavLink>

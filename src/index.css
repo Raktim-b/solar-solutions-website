@@ -30,6 +30,7 @@ body {
 }
 
 /* Banner */
+/* Home */
 .banner-sec {
   /* background: url("/Images/Banner-bg.webp") no-repeat top/cover; */
   background: url("/public/Images/Home/Banner-img.jpg") no-repeat bottom/cover;
@@ -44,7 +45,7 @@ body {
     to bottom,
     rgba(0, 0, 0, 0.25),
     rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.45)
+    rgba(0, 0, 0, 0.85)
   );
 }
 /* z-index: 1; */
@@ -52,7 +53,21 @@ body {
 .hero-para {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
-
+/* Service */
+.service-banner-sec {
+  background: url("/public/Images/Service/banner-bg-1.png") no-repeat top/cover;
+}
+.service-banner-sec::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.1)
+  );
+}
 /* Service  */
 
 /* AutoScroll */
@@ -117,9 +132,9 @@ body {
     }
   }
   .MuiAccordionSummary-content {
-  /* margin: 0 !important; */
-  padding-block: 20px;
-}
+    /* margin: 0 !important; */
+    padding-block: 20px;
+  }
 }
 @media screen and (max-width: 420px) {
   .nav-collapsed {

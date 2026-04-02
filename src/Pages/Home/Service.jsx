@@ -91,7 +91,10 @@ const Service = () => {
                         </span>{" "}
                         and Affordable — helping you transition to clean,
                         renewable energy with reliable solutions that reduce
-                        costs and power a sustainable future.
+                        costs and{" "}
+                        <span className="text-green-500">
+                          power a sustainable future.
+                        </span>
                       </>,
                     ]
                   : [
@@ -100,7 +103,13 @@ const Service = () => {
                       </span>,
                       <>Affordable — helping you transition to clean,</>,
                       <> renewable energy with reliable solutions that</>,
-                      <> reduce costs and power a sustainable future.</>,
+                      <>
+                        {" "}
+                        reduce costs and{" "}
+                        <span className="text-green-500">
+                          power a sustainable future.
+                        </span>
+                      </>,
                     ]
               }
               className="text-white"

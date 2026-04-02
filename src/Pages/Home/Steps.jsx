@@ -20,7 +20,13 @@ const Steps = () => {
                   Experience, Innovation,{" "}
                 </span>,
                 <> and Reliability — Delivering</>,
-                <> Advanced Solar Solutions You Can Trust</>,
+                <>
+                  {" "}
+                  Advanced{" "}
+                  <span className="text-green-500">
+                    Solar Solutions You Can Trust
+                  </span>
+                </>,
               ]}
             />
             <p className="font-semibold text-[#0000009e] text-base sm:text-lg/snug mt-10 md:mt-15 max-w-lg">

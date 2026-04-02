@@ -122,7 +122,7 @@ const Work = () => {
                 subtitle={
                   isMobile
                     ? ["Recently Completed, Projects"]
-                    : [<>Recently Completed </>, <>Projects</>]
+                    : [<>Recently Completed </>, <span className="text-green-500">Projects</span>]
                 }
               />
               <SecondaryButton

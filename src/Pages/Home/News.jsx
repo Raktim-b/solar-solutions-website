@@ -48,14 +48,22 @@ const News = () => {
                       <span className="ml-20 md:ml-30">
                         Our Most Recent Posts, Stories,
                       </span>
-                      and Expert Insights that matter.
+                      and{" "}
+                      <span className="text-green-500">
+                        Expert Insights that matter.
+                      </span>
                     </>,
                   ]
                 : [
                     <span className="ml-20 md:ml-30">
                       Our Most Recent Posts, Stories,
                     </span>,
-                    <>and Expert Insights that matter.</>,
+                    <>
+                      and{" "}
+                      <span className="text-green-500">
+                        Expert Insights that matter.
+                      </span>
+                    </>,
                   ]
             }
           />

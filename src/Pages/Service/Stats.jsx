@@ -11,7 +11,7 @@ const Stats = () => {
   return (
     <section
       ref={counterRef}
-      className="bg-white py-20 z-10 min-h-auto  relative overflow-hidden"
+      className="bg-gray-100 py-20 z-10 min-h-auto  relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 text-center">
         <div className="flex flex-col items-start md:items-center text-start md:text-center ">

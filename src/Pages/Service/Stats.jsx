@@ -11,7 +11,7 @@ const Stats = () => {
   return (
     <section
       ref={counterRef}
-      className="bg-gray-100 py-20 z-10 min-h-auto  relative overflow-hidden"
+      className="bg-gray-100 py-10 md:py-20 z-10 min-h-auto relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 text-center">
         <div className="flex flex-col items-start md:items-center text-start md:text-center ">
@@ -24,9 +24,9 @@ const Stats = () => {
           />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x-2 divide-gray-200 mt-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x-2 divide-gray-200 mt-10">
           {serviceStats.map((stat, index) => (
-            <div key={index} className="px-6">
+            <div key={index} className="px-6 mb-8 md:mb-0">
               <h3 className="text-5xl font-bold text-green-500">
                 {inView && (
                   <>

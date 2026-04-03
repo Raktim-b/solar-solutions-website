@@ -137,7 +137,7 @@ const Service = () => {
               {/* Content */}
               <div className="absolute bottom-0 left-0 w-full p-3 sm:p-6 text-white">
                 {/* ID */}
-                <p className="text-sm font-semibold text-green-400 -mb-8 group-hover:mb-2 md:mb-0.5">
+                <p className="text-lg sm:text-7xl font-extrabold text-green-400 -mb-8 group-hover:mb-2 md:mb-0.5">
                   {item.id}
                 </p>
 

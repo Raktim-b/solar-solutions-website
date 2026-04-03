@@ -91,7 +91,7 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
                       }`
                     }
                   >
-                    <span className="block text-3xl md:text-base uppercase font-bold  transition-transform duration-300 group-hover:-translate-y-full">
+                    <span className="block text-3xl md:text-base uppercase font-semibold  transition-transform duration-300 group-hover:-translate-y-full">
                       {name}
                     </span>
                     <span className="absolute text-3xl md:text-base uppercase font-semibold left-0 top-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-green-500">

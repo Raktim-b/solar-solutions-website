@@ -14,20 +14,20 @@ export default function Accordion() {
   };
 
   return (
-    <div className="w-full h-full border-l border-gray-300 pt-2">
+    <div className="w-full h-full border-l-2 border-gray-200 pt-2">
       {accor.map((item) => (
         <MuiAccordion
           key={item.id}
           expanded={expanded === item.id}
           onChange={handleChange(item.id)}
-          className="shadow-none! bg-transparent! border-b border-gray-300 before:hidden!"
+          className="shadow-none! bg-transparent! border-b-2 border-gray-200 before:hidden!"
         >
           <AccordionSummary
             expandIcon={
               <AddIcon className="text-gray-600 text-2xl! sm:text-3xl! md:text-4xl!" />
             }
           >
-            <Typography className="text-lg! sm:text-[22px]! lg:text-2xl!  font-medium! ">
+            <Typography className="text-lg! sm:text-[22px]! lg:text-2xl! font-[Inter]! font-medium! ">
               {item.title}
             </Typography>
           </AccordionSummary>

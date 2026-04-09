@@ -121,7 +121,12 @@ body {
 .MuiAccordionSummary-expandIconWrapper.Mui-expanded svg {
   transform: rotate(45deg);
 }
-
+.css-1lj39kh-MuiAccordionDetails-root {
+  padding: 10px 20px 30px !important;
+}
+.css-1wqf3nl-MuiAccordionSummary-expandIconWrapper.Mui-expanded {
+  display: none;
+}
 @media screen and (max-width: 640px) {
   @keyframes scroll-left {
     0% {

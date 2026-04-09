@@ -27,7 +27,7 @@ const Stats = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x-0 md:divide-x-2 divide-gray-200 mt-10">
           {serviceStats.map((stat, index) => (
             <div key={index} className="px-6 mb-8 md:mb-0">
-              <h3 className="text-5xl font-bold text-green-500">
+              <h3 className="text-4xl sm:text-5xl md:text-7xl font-bold text-green-500">
                 {inView && (
                   <>
                     <CountUp end={parseInt(stat.number)} duration={3} />

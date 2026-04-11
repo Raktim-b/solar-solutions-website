@@ -7,48 +7,43 @@ import SubTitle from "../../Services/Title/SubTitle";
 const QuestionAnswer = () => {
   const isMobile = window.innerWidth < 768;
   return (
-    <section className="bg-[#f5f5f5] py-10 min-h-auto md:min-h-screen md:py-30 relative z-10">
+    <section className="bg-[#faf8f4] py-10 md:py-30 relative z-10">
       <Container>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-15">
+        <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16">
           {/* LEFT SIDE */}
-          <div className="flex w-full md:w-1/3 flex-col">
-            <div>
-              <PriTitle prititle="Frequently Asked Questions" />
+          <div className="w-full md:w-1/3 md:sticky md:top-24 h-fit">
+            <PriTitle prititle="Frequently Asked Questions" />
 
-              <SubTitle
-                subtitle={
-                  isMobile
-                    ? [
-                        <>
-                          <span className="ml-10">Answering your </span>
-                          questions{" "}
-                          <span className="text-green-500">
-                            clearly and efficiently
-                          </span>
-                        </>,
-                      ]
-                    : [
-                        <span className="ml-10">Answering your </span>,
-                        <>
-                          questions{" "}
-                          <span className="text-green-500">clearly</span>
-                        </>,
+            <SubTitle
+              subtitle={
+                isMobile
+                  ? [
+                      <>
+                        <span className="ml-10">Answering your </span>
+                        questions{" "}
                         <span className="text-green-500">
-                          {" "}
-                          and efficiently
-                        </span>,
-                      ]
-                }
-              />
-            </div>
+                          clearly and efficiently
+                        </span>
+                      </>,
+                    ]
+                  : [
+                      <span className="ml-10">Answering your </span>,
+                      <>
+                        questions{" "}
+                        <span className="text-green-500">clearly</span>
+                      </>,
+                      <span className="text-green-500"> and efficiently</span>,
+                    ]
+              }
+            />
 
             {/* Bottom CTA */}
-            <div className="mt-5 md:mt-30">
-              <p className="font-semibold text-black text-base sm:text-lg/snug">
+            <div className="mt-10 md:mt-32">
+              <p className="font-semibold text-black text-base sm:text-lg">
                 STILL LOOKING FOR ANSWERS?
               </p>
 
-              <p className="font-semibold text-[#0000009e] text-base sm:text-lg/snug mt-5 mb-8">
+              <p className="font-medium text-gray-500 text-base sm:text-lg mt-5 mb-8">
                 Get in touch via our contact form and we'll help you answer them
               </p>
 

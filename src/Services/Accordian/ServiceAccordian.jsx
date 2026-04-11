@@ -15,7 +15,7 @@ const ServiceAccordian = () => {
     );
   };
   return (
-    <div className="w-full text-white border-t border-neutral-700">
+    <div className=" w-full text-white border-t border-neutral-700">
       {serviceCard.map((item, index) => (
         <MuiAccordion
           key={index}
@@ -26,7 +26,7 @@ const ServiceAccordian = () => {
           {/* HEADER */}
           <AccordionSummary
             expandIcon={<AddIcon className="text-white text-3xl! " />}
-            className="px-0! sm:px-4!"
+            className="service-accor px-0! sm:px-4!"
           >
             <div className="flex items-start sm:items-center w-full justify-between">
               {/* NUMBER */}
@@ -69,9 +69,12 @@ const ServiceAccordian = () => {
                 <p className="font-medium text-gray-500 text-base sm:text-lg/snug">
                   {item.desc}
                 </p>
-               <div className="mt-10">
-                    <SecondaryButton content="Veiw More" className="bg-gray-300" />
-               </div>
+                <div className="mt-10">
+                  <SecondaryButton
+                    content="Veiw More"
+                    className="bg-gray-300"
+                  />
+                </div>
               </div>
             </div>
           </AccordionDetails>

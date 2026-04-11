@@ -124,8 +124,14 @@ body {
 .css-1lj39kh-MuiAccordionDetails-root {
   padding: 10px 20px 30px !important;
 }
-.css-1wqf3nl-MuiAccordionSummary-expandIconWrapper.Mui-expanded {
-  display: none;
+.css-1wqf3nl-MuiAccordionSummary-expandIconWrapper.Mui-expanded,
+.css-1wqf3nl-MuiAccordionSummary-expandIconWrapper {
+  display:block !important;
+}
+.service-accor
+  > .css-1wqf3nl-MuiAccordionSummary-expandIconWrapper.Mui-expanded,
+.css-1wqf3nl-MuiAccordionSummary-expandIconWrapper {
+  display: none !important;
 }
 @media screen and (max-width: 640px) {
   @keyframes scroll-left {

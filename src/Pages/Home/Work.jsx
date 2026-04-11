@@ -85,7 +85,7 @@ const Work = () => {
   }, []);
 
   return (
-    <section className="relative md:min-h-screen z-20 bg-[#f5f5f5] py-10 md:py-30">
+    <section className="relative md:min-h-screen z-20 bg-[#faf8f4] py-10 md:py-30">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3">
           {/* LEFT CARDS */}

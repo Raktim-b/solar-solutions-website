@@ -15,21 +15,21 @@ const SubTitle = ({ subtitle = [], className = "" }) => {
     gsap.fromTo(
       rightRef.current,
       {
-        y: 100,
+        y: 80,
         opacity: 0,
-        filter: "blur(4px)",
+        filter: "blur(6px)",
       },
       {
         y: 0,
         opacity: 1,
         filter: "blur(0px)",
-        duration: 1,
-        stagger: 0.25,
+        stagger: 0.6,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: rightRef.current[0],
-          start: "top 70%",
-          toggleActions: "play none none reverse",
+          trigger: rightRef.current[0].parentElement,
+          start: "top 80%",
+          end: "+=600",
+          scrub: 2,
         },
       },
     );

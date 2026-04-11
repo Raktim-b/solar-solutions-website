@@ -45,13 +45,13 @@ const Steps = () => {
                   index % 2 === 0
                     ? "bg-black rotate-0 md:-rotate-2"
                     : "bg-[#212121] rotate-0 md:rotate-2"
-                } static sm:sticky w-full h-55 mt-0 sm:mt-10 sm:h-70 text-white p-5 sm:p-8 rounded-xl flex flex-col justify-between `}
+                } static sm:sticky w-full h-55 mt-0 sm:mt-10 sm:h-90 text-white p-5 sm:p-8 rounded-xl flex flex-col justify-between `}
               >
                 <div className="flex justify-between items-start">
                   <div>
                     <CardTitle cardtitle={item.heading} />
                   </div>
-                  <span className="text-gray-400 text-2xl font-bold">
+                  <span className="text-gray-400 text-xl md:text-7xl font-bold">
                     {item.id}
                   </span>
                 </div>

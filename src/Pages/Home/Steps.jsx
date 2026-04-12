@@ -51,21 +51,22 @@ const Steps = () => {
                   <div>
                     <CardTitle cardtitle={item.heading} />
                   </div>
-                  <span className="text-gray-400 text-xl md:text-7xl font-bold">
+                  <span className="text-green-500 text-xl md:text-7xl font-bold">
                     {item.id}
                   </span>
                 </div>
 
                 {/* Icon */}
-                <div className="flex justify-between ">
-                  <p className="text-[16px] sm:text-lg text-[#fffcf3ce] max-w-90 ">
-                    {item.desc}
-                  </p>
+                <div className="flex justify-between gap-10 items-center">
                   <img
                     src={item.imageSrc}
                     alt={item.heading}
-                    className="w-12 h-12"
+                    className="w-28 h-28"
                   />
+                  <p className="text-[16px] sm:text-lg text-[#fffcf3ce] max-w-90 ">
+                    {item.desc}
+                  </p>
+                  
                 </div>
               </div>
             ))}

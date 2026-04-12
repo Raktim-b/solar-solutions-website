@@ -5,25 +5,39 @@ import PriTitle from "../../Services/Title/PriTitle";
 import { priceCard } from "../../Services/JSON/Service/PricingCard";
 import CardTitle from "../../Services/Title/CardTitle";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";
-
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 const Pricing = () => {
   const isMobile = window.innerWidth < 768;
+  const cardsRef = useRef([]);
+  useGSAP(() => {
+    if (window.innerWidth < 768) return;
+    cardsRef.current.forEach((card, index) => {
+      if (!card || index === cardsRef.current.length - 1) return;
+
+      gsap.to(card, {
+        backgroundColor: "#d4d4d4", // darker gray
+        ease: "none",
+        scrollTrigger: {
+          trigger: cardsRef.current[index + 1],
+          start: "top 80%", // next card hits 50% of viewport
+          end: "top 20%",
+          scrub: true,
+        },
+      });
+    });
+  }, []);
   return (
-    <section className="bg-[#101010] py-10 sm:py-30 min-h-auto md:min-h-screen relative z-10">
-      <img
-        src="/Images/Home/Sec-bg.png"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+    <section className="bg-[#f5f5f5] py-10 sm:py-30 min-h-auto md:min-h-screen relative z-10">
       <Container>
         <div className="mb-8 sm:mb-16 md:mb-20">
           <div className="flex flex-col mb-8 md:mb-16 lg:flex-row justify-between items-start gap-5 md:gap-10">
             {/* LEFT */}
             <div className="lg:w-[25%]">
-              <PriTitle
-                prititle="Pricing and plans"
-                className="text-gray-400 flex items-center gap-2"
-              />
+              <PriTitle prititle="Pricing and plans" className="" />
             </div>
 
             {/* RIGHT */}
@@ -54,55 +68,60 @@ const Pricing = () => {
                         </>,
                       ]
                 }
-                className="text-white"
+                // className="text-white"
               />
             </div>
           </div>
-          <div className="relative">
+          <div className="relative mt-7 md:mt-10">
             {priceCard.map((item, index) => (
               <div
                 key={index}
-                className="static md:sticky"
+                className="static md:sticky bg-[#f5f5f5] transition-colors duration-300"
+                ref={(el) => (cardsRef.current[index] = el)}
                 style={{
-                  top: `${100 + index * 10}px`,
+                  top: `${80 + index * 10}px`,
                   zIndex: index + 1,
                 }}
               >
-                <div className="bg-[#232323] rounded-md md:rounded-xl p-5 md:p-12 flex flex-col lg:flex-row items-center gap-5 md:gap-12 max-w-full sm:max-w-[75%] mx-auto mb-10 shadow-xl">
-                  {/* IMAGE */}
-                  <div className="w-full max-w-full sm:max-w-88.5 h-60 md:h-90 rounded-md md:rounded-xl overflow-hidden">
-                    <img
-                      src={item.imgSrc}
-                      alt={item.heading}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                <div className="w-full py-0 md:py-10 px-0 md:px-5 mb-10 md:mb-0">
+                  <div className="grid lg:grid-cols-5 gap-5 md:gap-10 items-start">
+                    {/* LEFT NUMBER */}
+                    <div className="col-span-2">
+                      <span className="text-2xl md:text-6xl tracking-tight font-bold leading-none">
+                        {String(index + 1).padStart(2, "0")}/
+                      </span>
+                    </div>
 
-                  {/* CONTENT */}
-                  <div className="flex flex-col justify-center">
-                    {/* NUMBER */}
-                    <span className="text-3xl md:text-[64px] font-bold text-green-500 mb-4">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                    {/* RIGHT CONTENT */}
+                    <div className="col-span-3">
+                      {/* TITLE */}
+                      <CardTitle
+                        cardtitle={item.heading}
+                        className="texr-xl! md:text-4xl/[50px]! font-bold! tracking-tight!"
+                      />
 
-                    {/* TITLE */}
-                    <CardTitle
-                      cardtitle={item.heading}
-                      className="text-white"
-                    />
+                      {/* DESCRIPTION */}
+                      <p className="mt-3 md:mt-6 font-medium text-gray-800 text-base sm:text-lg/snug max-w-130">
+                        {item.desc}
+                      </p>
 
-                    {/* DESCRIPTION */}
-                    <p className="font-medium text-gray-400 text-base sm:text-lg/snug mt-3 md:mt-5">
-                      {item.desc}
-                    </p>
-                    <div className="mt-5 md:mt-10">
-                      <SecondaryButton content="Learn More" />
+                      {/* IMAGE */}
+                      <div className="mt-10 w-full md:w-5/6 h-70 md:h-110 overflow-hidden">
+                        <img
+                          src={item.imgSrc}
+                          alt={item.heading}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+        <div>
+          <SecondaryButton content="View more" />
         </div>
       </Container>
     </section>

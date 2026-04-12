@@ -1,4 +1,4 @@
-const Hamburger = ({ open, setOpen }) => {
+const Hamburger = ({ open, setOpen, scrolled }) => {
   return (
     <div>
       <button
@@ -8,8 +8,17 @@ const Hamburger = ({ open, setOpen }) => {
         }`}
         id="toggler-btn"
       >
-        <span className="inline-block toggle-line1 bg-[#f8f5ec] h-1 w-8 mb-1.5"></span>
-        <span className="inline-block toggle-line2 bg-[#f8f5ec] h-1 w-4.5 self-end"></span>
+        <span
+          className={`inline-block toggle-line1 h-1 w-8 mb-1.5 ${
+            scrolled ? "bg-black" : "bg-[#f8f5ec]"
+          }`}
+        ></span>
+
+        <span
+          className={`inline-block toggle-line2 h-1 w-4.5 self-end ${
+            scrolled ? "bg-black" : "bg-[#f8f5ec]"
+          }`}
+        ></span>
       </button>
     </div>
   );

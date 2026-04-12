@@ -62,12 +62,12 @@ const Service = () => {
       );
   }, []);
   return (
-    <section className="bg-[#101010] py-10 sm:py-30 overflow-hidden min-h-screen relative z-10 ">
-      <img
+    <section className=" py-10 bg-[#f5f5f5] sm:py-30 overflow-hidden min-h-screen relative z-10 ">
+      {/* <img
         src="/Images/Home/Sec-bg.png"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
-      />
+      /> */}
       <Container>
         {/* Title */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-5 md:gap-10">
@@ -75,7 +75,7 @@ const Service = () => {
           <div className="lg:w-[25%]">
             <PriTitle
               prititle="Our services"
-              className="text-gray-400 flex items-center gap-2"
+              // className="text-gray-400 flex items-center gap-2"
             />
           </div>
 
@@ -112,7 +112,7 @@ const Service = () => {
                       </>,
                     ]
               }
-              className="text-white"
+              // className="text-white"
             />
           </div>
         </div>
@@ -132,7 +132,7 @@ const Service = () => {
                 className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t  from-black/70 via-black/40 to-transparent"></div>
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 w-full p-3 sm:p-6 text-white">
@@ -145,7 +145,7 @@ const Service = () => {
                 <div className="translate-y-10 md:translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   <CardTitle
                     cardtitle={item.heading}
-                    className="text-white/80 mix-blend-overlay"
+                    className="text-white mix-blend-overlay"
                   />
                 </div>
 

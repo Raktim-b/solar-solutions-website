@@ -12,7 +12,7 @@ const Service = () => {
       <Stats />
       <ServiceSec />
       <Pricing />
-      <ContactSec/>
+      <ContactSec />
     </>
   );
 };

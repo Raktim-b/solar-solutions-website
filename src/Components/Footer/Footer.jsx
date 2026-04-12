@@ -1,14 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FacebookOutlined } from "@mui/icons-material";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { useLocation, useNavigate } from "react-router-dom";
 import { navLinks } from "../../Services/JSON/Navbar";
-import SecondaryButton from "../Buttons/SecondaryButton";
 import Container from "../Container/Container";
-import SubTitle from "../../Services/Title/SubTitle";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import PriTitle from "../../Services/Title/PriTitle";
+import { workCard } from "../../Services/JSON/Home/Work";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -32,69 +29,93 @@ const Footer = () => {
       ref={footerRef}
       className="bg-[#101010] text-white  relative py-10 sm:py-20  overflow-hidden z-7"
     >
-      <img
-        src="/Images/Home/Sec-bg.png"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-      />
       <Container>
-        <div className="max-w-15 relative z-11 mx-auto mb-8">
-          <Link to="/" className="w-full h-full">
-            <img
-              src={"Images/Home/Logo.png"}
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </Link>
-        </div>
-        <div className="text-center max-w-full md:max-w-150 mx-auto">
-          <SubTitle
-            subtitle={[
-              <>Power Your Home With</>,
-              <span className="text-green-500">Smarter Energy</span>,
-            ]}
-            className="text-white"
-          />
-          <p className="text-gray-400 font-semibold text-base sm:text-lg/snug mt-4">
-            Switch to clean, affordable solar solutions and start saving today.
-          </p>
-        </div>
-        <div className="flex items-center relative z-11 justify-center mt-5 sm:mt-8">
-          <SecondaryButton
-            content="Contact Now"
-            path="/contact"
-            className="text-black "
-          />
-        </div>
-        <div className="flex flex-wrap justify-center items-center gap-3 mt-8 text-gray-300 relative z-11">
-          {navLinks.map((item, index) => (
-            <div key={item.id} className="flex items-center gap-3">
-              <span
-                onClick={() => navigate(item.path)}
-                className="cursor-pointer hover:text-green-400 transition text-sm md:text-[16px] uppercase font-medium"
-              >
-                {item.name}
-              </span>
-
-              {/* Dot separator */}
-              {index !== navLinks.length - 1 && <span>•</span>}
+        {/* TOP GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-16 text-white relative z-11">
+          {/* CONTACT */}
+          <div className="col-span-1 xl:col-span-2">
+            <div className=" mb-6 flex items-center gap-1">
+              <span className="w-2.5 h-2.5 bg-[#a1a1a1] rounded-full inline-block"></span>
+              <p className="text-[#a1a1a1] leading-tight font-bold">CONTACT</p>
             </div>
-          ))}
-        </div>
-        <div className="flex justify-center gap-6 mt-8 text-green-400 relative z-11">
-          <FacebookOutlined
-            size={20}
-            className="cursor-pointer hover:scale-110 transition"
-          />
-          <TwitterIcon
-            size={20}
-            className="cursor-pointer hover:scale-110 transition"
-          />
+            <h3 className="text-[32px] leading-tight font-semibold">
+              123 Design , <span className="block">Avenue Downtown </span>
+              <span className="block">Dubai, UAE</span>
+            </h3>
 
-          <LinkedInIcon
-            size={20}
-            className="cursor-pointer hover:scale-110 transition"
-          />
+            <div className="mt-6 text-gray-400 space-y-2 text-sm">
+              <p>HELLO@ARCHFORM.COM</p>
+              <p>+01 2345678901</p>
+            </div>
+          </div>
+
+          {/* SITEMAP */}
+          <div>
+            <div className=" mb-7.5 flex items-center gap-1">
+              <span className="w-2.5 h-2.5 bg-[#a1a1a1] rounded-full inline-block"></span>
+              <p className="text-[#a1a1a1] leading-tight font-bold">SITEMAP</p>
+            </div>
+
+            <div className="flex flex-col gap-1.25">
+              {navLinks.map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => navigate(item.path)}
+                  className="relative w-fit overflow-hidden cursor-pointer group"
+                >
+                  <span className="block text-[32px] leading-tight tracking-tighter font-semibold transition-transform duration-300 group-hover:-translate-y-full">
+                    {item.name}
+                  </span>
+
+                  <span className="absolute left-0 top-0 block text-[32px] leading-tight tracking-tighter font-semibold translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-gray-400">
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* PROJECTS */}
+          <div>
+            <div className=" mb-7.5 flex items-center gap-1">
+              <span className="w-2.5 h-2.5 bg-[#a1a1a1] rounded-full inline-block"></span>
+              <p className="text-[#a1a1a1] leading-tight font-bold">PROJECT</p>
+            </div>
+
+            <div className="flex flex-col gap-1.25 text-2xl font-semibold">
+              {workCard.map((project, index) => (
+                <div
+                  key={index}
+                  className="relative w-fit overflow-hidden cursor-pointer group"
+                >
+                  <span className="block text-[32px] leading-tight font-semibold transition-transform duration-300 group-hover:-translate-y-full">
+                    {project.name.split(" ")[0]}
+                  </span>
+
+                  <span className="absolute left-0 top-0 block text-[32px] leading-tight font-semibold translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-gray-400">
+                    {project.name.split(" ")[0]}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM BAR */}
+        <div className="flex flex-col md:flex-row justify-between items-center mt-20 text-white text-sm relative z-11">
+          {/* SOCIAL */}
+          <div className="flex gap-8 uppercase font-semibold">
+            <span className="cursor-pointer hover:text-white">Instagram</span>
+            <span className="cursor-pointer hover:text-white">Twitter(X)</span>
+            <span className="cursor-pointer hover:text-white">LinkedIn</span>
+          </div>
+
+          {/* COPYRIGHT */}
+          <p className="mt-6 md:mt-0 font-semibold">
+            © 2026 All rights reserved.
+          </p>
+
+          {/* TEMPLATE */}
         </div>
       </Container>
     </footer>

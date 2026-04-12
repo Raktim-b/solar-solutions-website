@@ -7,7 +7,7 @@ import SubTitle from "../../Services/Title/SubTitle";
 const QuestionAnswer = () => {
   const isMobile = window.innerWidth < 768;
   return (
-    <section className="bg-[#faf8f4] py-10 md:py-30 relative z-10">
+    <section className="bg-[#f5f5f5] py-10 md:py-30 relative z-10">
       <Container>
         <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16">
           {/* LEFT SIDE */}

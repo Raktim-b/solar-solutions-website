@@ -4,7 +4,7 @@ const PrimaryBtn = ({ name, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="flex items-center justify-between cursor-pointer bg-black text-white rounded-lg py-1.5 pr-1.5 pl-6 w-fit group hover:bg-[#1a1a1a] transition"
+      className="flex items-center justify-between cursor-pointer bg-black text-white rounded-lg py-1 pr-1.5 pl-6 w-fit group hover:bg-[#1a1a1a] transition"
     >
       {/* Text */}
       <span className="font-semibold text-base md:text-lg">{name}</span>

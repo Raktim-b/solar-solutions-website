@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-// import { useGSAP } from "@gsap/react";
-// import gsap from "gsap";
 import PrimaryBtn from "../Buttons/PrimaryBtn";
 import Hamburger from "../Buttons/Hamburger";
 import { navLinks } from "../../Services/JSON/Navbar";
@@ -11,30 +9,44 @@ import gsap from "gsap";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navRef = useRef(null);
+
+  // Prevent scroll when mobile menu open
   useEffect(() => {
-    open
-      ? (document.body.classList.add("overflow-hidden"),
-        document.documentElement.classList.add("overflow-hidden"))
-      : (document.body.classList.remove("overflow-hidden"),
-        document.documentElement.classList.remove("overflow-hidden"));
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+      document.documentElement.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+      document.documentElement.classList.remove("overflow-hidden");
+    }
+
     return () => {
       document.body.classList.remove("overflow-hidden");
       document.documentElement.classList.remove("overflow-hidden");
     };
   }, [open]);
-  // useGSAP(() => {
-  //   gsap.from(".navbar", {
-  //     y: -80,
-  //     opacity: 0,
-  //     duration: 1,
-  //     delay: 1, // slightly more than loader time
-  //     ease: "power3.out",
-  //   });
-  // });
+
+  // Detect scroll past 100vh
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // GSAP navbar entry animation
   useGSAP(() => {
     if (window.innerWidth < 768) return;
+
     gsap.fromTo(
       navRef.current,
       {
@@ -50,23 +62,30 @@ const Navbar = () => {
       },
     );
   }, [location.pathname]);
+
   return (
-    <header className="py-5 navbar fixed z-9 w-full ">
+    <header
+      className={`py-3 navbar fixed z-50 w-full transition-all duration-300 ${
+        scrolled ? "bg-white" : "bg-transparent"
+      }`}
+    >
       <Container>
         <nav
           ref={navRef}
           className="flex items-center justify-between md:justify-normal"
         >
-          <div className="nav-logo max-w-15 relative z-2">
+          {/* LOGO */}
+          <div className="nav-logo max-w-12 relative z-2">
             <Link to="/" className="w-full h-full">
               <img
                 src={"Images/Home/Logo.png"}
-                alt=""
+                alt="logo"
                 className="w-full h-full object-cover"
               />
             </Link>
           </div>
 
+          {/* NAV LINKS */}
           <div
             className={`nav-collapsed z-40 flex flex-col md:flex-row justify-normal md:justify-between
 bg-white/10 backdrop-blur-3xl border-l border-white/30 shadow-xl
@@ -87,13 +106,18 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
                       `relative inline-block overflow-hidden group ${
-                        isActive ? "text-green-500" : "text-white"
+                        isActive
+                          ? "text-green-500"
+                          : scrolled
+                            ? "text-black"
+                            : "text-white"
                       }`
                     }
                   >
-                    <span className="block text-3xl md:text-base uppercase font-semibold  transition-transform duration-300 group-hover:-translate-y-full">
+                    <span className="block text-3xl md:text-base uppercase font-semibold transition-transform duration-300 group-hover:-translate-y-full">
                       {name}
                     </span>
+
                     <span className="absolute text-3xl md:text-base uppercase font-semibold left-0 top-0 block translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-green-500">
                       {name}
                     </span>
@@ -102,11 +126,14 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
               ))}
             </ul>
 
+            {/* BUTTON */}
             <div className="nav-btn flex mt-3 md:mt-0">
               <PrimaryBtn name="Free Call" />
             </div>
           </div>
-          <Hamburger open={open} setOpen={setOpen} />
+
+          {/* HAMBURGER */}
+         <Hamburger open={open} setOpen={setOpen} scrolled={scrolled} />
         </nav>
       </Container>
     </header>

@@ -9,7 +9,7 @@ const ContactSec = () => {
   return (
     <section className="bg-gray-100 py-10 md:py-30 z-10 min-h-auto relative overflow-hidden">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-15 items-start">
           {/* LEFT - FORM */}
           <div>
             {/* TITLE */}

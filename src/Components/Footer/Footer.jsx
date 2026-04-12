@@ -27,7 +27,7 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="bg-[#101010] text-white  relative py-10 sm:py-20  overflow-hidden z-7"
+      className="bg-[#101010] text-white min-h-auto md:min-h-[80vh] relative py-10 sm:py-20  overflow-hidden z-7"
     >
       <Container>
         {/* TOP GRID */}
@@ -40,12 +40,12 @@ const Footer = () => {
             </div>
             <h3 className="text-[32px] leading-tight font-semibold">
               123 Design , <span className="block">Avenue Downtown </span>
-              <span className="block">Dubai, UAE</span>
+              <span className="block">XYZ, India</span>
             </h3>
 
             <div className="mt-6 text-gray-400 space-y-2 text-sm">
-              <p>HELLO@ARCHFORM.COM</p>
-              <p>+01 2345678901</p>
+              <p>HELLO@Abc.COM</p>
+              <p>+01 123456789</p>
             </div>
           </div>
 

@@ -36,9 +36,9 @@ const Footer = () => {
           <div className="col-span-1 xl:col-span-2">
             <div className=" mb-6 flex items-center gap-1">
               <span className="w-2.5 h-2.5 bg-[#a1a1a1] rounded-full inline-block"></span>
-              <p className="text-[#a1a1a1] leading-tight font-bold">CONTACT</p>
+              <p className="text-[#a1a1a1] text-sm md:text-base leading-tight font-bold">CONTACT</p>
             </div>
-            <h3 className="text-[32px] leading-tight font-semibold">
+            <h3 className="text-base md:text-[32px] leading-tight font-semibold">
               123 Design , <span className="block">Avenue Downtown </span>
               <span className="block">XYZ, India</span>
             </h3>
@@ -53,7 +53,7 @@ const Footer = () => {
           <div>
             <div className=" mb-7.5 flex items-center gap-1">
               <span className="w-2.5 h-2.5 bg-[#a1a1a1] rounded-full inline-block"></span>
-              <p className="text-[#a1a1a1] leading-tight font-bold">SITEMAP</p>
+              <p className="text-[#a1a1a1] text-sm md:text-base leading-tight font-bold">SITEMAP</p>
             </div>
 
             <div className="flex flex-col gap-1.25">
@@ -63,11 +63,11 @@ const Footer = () => {
                   onClick={() => navigate(item.path)}
                   className="relative w-fit overflow-hidden cursor-pointer group"
                 >
-                  <span className="block text-[32px] leading-tight tracking-tighter font-semibold transition-transform duration-300 group-hover:-translate-y-full">
+                  <span className="block text-base md:text-[32px] leading-tight tracking-tighter font-semibold transition-transform duration-300 group-hover:-translate-y-full">
                     {item.name}
                   </span>
 
-                  <span className="absolute left-0 top-0 block text-[32px] leading-tight tracking-tighter font-semibold translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-gray-400">
+                  <span className="absolute left-0 top-0 block text-base md:text-[32px] leading-tight tracking-tighter font-semibold translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-gray-400">
                     {item.name}
                   </span>
                 </div>
@@ -79,7 +79,7 @@ const Footer = () => {
           <div>
             <div className=" mb-7.5 flex items-center gap-1">
               <span className="w-2.5 h-2.5 bg-[#a1a1a1] rounded-full inline-block"></span>
-              <p className="text-[#a1a1a1] leading-tight font-bold">PROJECT</p>
+              <p className="text-[#a1a1a1] text-sm md:text-base leading-tight font-bold">PROJECT</p>
             </div>
 
             <div className="flex flex-col gap-1.25 text-2xl font-semibold">
@@ -88,11 +88,11 @@ const Footer = () => {
                   key={index}
                   className="relative w-fit overflow-hidden cursor-pointer group"
                 >
-                  <span className="block text-[32px] leading-tight font-semibold transition-transform duration-300 group-hover:-translate-y-full">
+                  <span className="block text-base md:text-[32px] leading-tight font-semibold transition-transform duration-300 group-hover:-translate-y-full">
                     {project.name.split(" ")[0]}
                   </span>
 
-                  <span className="absolute left-0 top-0 block text-[32px] leading-tight font-semibold translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-gray-400">
+                  <span className="absolute left-0 top-0 block text-base md:text-[32px] leading-tight font-semibold translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-gray-400">
                     {project.name.split(" ")[0]}
                   </span>
                 </div>
@@ -104,14 +104,14 @@ const Footer = () => {
         {/* BOTTOM BAR */}
         <div className="flex flex-col md:flex-row justify-between items-center mt-20 text-white text-sm relative z-11">
           {/* SOCIAL */}
-          <div className="flex gap-8 uppercase font-semibold">
+          <div className="flex gap-8 uppercase text-sm md:text-base font-semibold">
             <span className="cursor-pointer hover:text-white">Instagram</span>
             <span className="cursor-pointer hover:text-white">Twitter(X)</span>
             <span className="cursor-pointer hover:text-white">LinkedIn</span>
           </div>
 
           {/* COPYRIGHT */}
-          <p className="mt-6 md:mt-0 font-semibold">
+          <p className="mt-6 md:mt-0 text-sm md:text-base font-semibold">
             © 2026 All rights reserved.
           </p>
 

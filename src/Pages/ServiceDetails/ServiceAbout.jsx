@@ -62,15 +62,18 @@ const ServiceAbout = ({ details }) => {
         <p className="text-base sm:text-lg text-black font-medium mt-10">
           {description}
         </p>
-        <div ref={imageContainerRef} className="flex gap-5 my-15 w-3/4 mx-auto">
-          <div className="w-1/2 h-125">
+        <div
+          ref={imageContainerRef}
+          className="flex gap-5 my-15 w-full md:w-3/4 mx-auto"
+        >
+          <div className="w-1/2 h-75 sm:h-100 md:h-125">
             <img
               src={imgSrc}
               alt={title}
               className="w-full rounded-lg h-full object-cover"
             />
           </div>
-          <div className="w-1/2 h-125">
+          <div className="w-1/2 h-75 sm:h-100 md:h-125">
             <img
               src={imgSrc2}
               alt={title}
@@ -105,7 +108,7 @@ const ServiceAbout = ({ details }) => {
           ))}
         </div>
       </Container>
-      <div className="max-w-1/2 mx-auto mt-10">
+      <div className="w-full md:max-w-1/2 mx-auto mt-10">
         <img
           src="/Images/ServiceDetails/ServiceAbout-img.png"
           alt=""

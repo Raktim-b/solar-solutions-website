@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const ServiceSec = () => {
   const AccorContainerRef = useRef(null);
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const el = AccorContainerRef.current;
 
     gsap.fromTo(

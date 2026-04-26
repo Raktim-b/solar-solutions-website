@@ -33,7 +33,7 @@ const Banner = () => {
   return (
     <section
       ref={bannerRef}
-      className="service-banner-sec sticky top-0 min-h-screen flex items-center md:items-end pb-0 md:pb-10 z-8"
+      className="service-banner-sec sticky top-0 min-h-screen flex items-end pb-20 md:pb-10 z-8"
     >
       <Container>
         <div className="grid lg:grid-cols-[1fr_auto] items-center gap-7.5 ">

@@ -10,10 +10,13 @@ import gsap from "gsap";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+
   const location = useLocation();
   const navRef = useRef(null);
+  const lastScrollY = useRef(0);
 
-  // Prevent scroll when mobile menu open
+  // ✅ Prevent scroll when mobile menu open
   useEffect(() => {
     if (open) {
       document.body.classList.add("overflow-hidden");
@@ -29,10 +32,22 @@ const Navbar = () => {
     };
   }, [open]);
 
-  // Detect scroll past 100vh
+  // ✅ Detect scroll direction (SHOW / HIDE navbar)
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight) {
+      const currentScrollY = window.scrollY;
+
+      // 👉 Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+
+      // 👉 Background change logic
+      if (currentScrollY > window.innerHeight) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -43,7 +58,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // GSAP navbar entry animation
+  // ✅ GSAP navbar entry animation
   useGSAP(() => {
     if (window.innerWidth < 768) return;
 
@@ -59,15 +74,15 @@ const Navbar = () => {
         duration: 0.8,
         delay: 1.8,
         ease: "power3.out",
-      },
+      }
     );
   }, [location.pathname]);
 
   return (
     <header
-      className={` navbar fixed z-50 w-full transition-all duration-300 ${
+      className={`navbar fixed z-50 w-full transition-all duration-300 ${
         scrolled ? "bg-white py-3" : "bg-transparent py-6"
-      }`}
+      } ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
     >
       <Container>
         <nav
@@ -109,8 +124,8 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
                         isActive
                           ? "text-green-500"
                           : scrolled
-                            ? "text-black"
-                            : "text-white"
+                          ? "text-black"
+                          : "text-white"
                       }`
                     }
                   >
@@ -133,7 +148,7 @@ ${open ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
           </div>
 
           {/* HAMBURGER */}
-         <Hamburger open={open} setOpen={setOpen} scrolled={scrolled} />
+          <Hamburger open={open} setOpen={setOpen} scrolled={scrolled} />
         </nav>
       </Container>
     </header>

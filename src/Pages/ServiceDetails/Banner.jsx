@@ -36,7 +36,7 @@ const Banner = ({ service }) => {
   return (
     <section
       ref={bannerRef}
-      className="min-h-screen bg-cover bg-top sticky top-0 flex items-center md:items-end justify-center pb-0 md:pb-10 z-8"
+      className="min-h-screen bg-cover bg-top sticky top-0 flex items-end justify-center pb-20 md:pb-10 z-8"
       style={{
         backgroundImage: `url(${imgSrc2})`,
       }}

@@ -13,17 +13,57 @@ gsap.registerPlugin(ScrollTrigger);
 const Pricing = () => {
   const isMobile = window.innerWidth < 768;
   const cardsRef = useRef([]);
+  const headerRef = useRef(null);
   useGSAP(() => {
     if (window.innerWidth < 768) return;
     cardsRef.current.forEach((card, index) => {
       if (!card || index === cardsRef.current.length - 1) return;
 
       gsap.to(card, {
-        backgroundColor: "#d4d4d4", // darker gray
+        backgroundColor: "#d4d4d4",
         ease: "none",
         scrollTrigger: {
           trigger: cardsRef.current[index + 1],
-          start: "top 80%", // next card hits 50% of viewport
+          start: "top 80%",
+          end: "top 20%",
+          scrub: true,
+        },
+      });
+    });
+  }, []);
+  useGSAP(() => {
+    if (window.innerWidth < 768) return;
+    gsap.fromTo(
+      headerRef.current,
+      {
+        y: 100,
+        opacity: 0,
+        filter: "blur(8px)",
+      },
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 40%",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+
+    // 👉 EXISTING CARD ANIMATION (keep as it is)
+    cardsRef.current.forEach((card, index) => {
+      if (!card || index === cardsRef.current.length - 1) return;
+
+      gsap.to(card, {
+        backgroundColor: "#d4d4d4",
+        ease: "none",
+        scrollTrigger: {
+          trigger: cardsRef.current[index + 1],
+          start: "top 80%",
           end: "top 20%",
           scrub: true,
         },
@@ -72,7 +112,7 @@ const Pricing = () => {
               />
             </div>
           </div>
-          <div className="relative mt-7 md:mt-10">
+          <div ref={headerRef} className="relative mt-7 md:mt-10">
             {priceCard.map((item, index) => (
               <div
                 key={index}
@@ -120,8 +160,8 @@ const Pricing = () => {
             ))}
           </div>
         </div>
-        <div>
-          <SecondaryButton content="View more" />
+        <div className="w-full flex justify-center">
+          <SecondaryButton content="View more" className="bg-gray-300" />
         </div>
       </Container>
     </section>

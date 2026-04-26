@@ -19,7 +19,7 @@ const Service = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: cards[0],
-        start: "top 55%",
+        start: "top 70%",
         toggleActions: "play none none reverse",
       },
     });
@@ -29,13 +29,11 @@ const Service = () => {
       {
         y: 100,
         opacity: 0,
-        scale: 0.95,
         filter: "blur(8px)",
       },
       {
         y: 0,
         opacity: 1,
-        scale: 1,
         duration: 0.8,
         filter: "blur(0px)",
         ease: "power3.out",
@@ -47,13 +45,11 @@ const Service = () => {
         {
           y: 100,
           opacity: 0,
-          scale: 0.95,
           filter: "blur(4px)",
         },
         {
           y: 0,
           opacity: 1,
-          scale: 1,
           filter: "blur(0px)",
           duration: 0.8,
           ease: "power3.out",

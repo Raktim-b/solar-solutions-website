@@ -8,7 +8,6 @@ import SecondaryButton from "../../Components/Buttons/SecondaryButton";
 
 const ServiceAccordian = () => {
   const [expanded, setExpanded] = useState([0]);
-
   const handleChange = (index) => () => {
     setExpanded((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
@@ -73,6 +72,7 @@ const ServiceAccordian = () => {
                   <SecondaryButton
                     content="Veiw More"
                     className="bg-gray-300"
+                    path={`/service/${item.slug}`}
                   />
                 </div>
               </div>

@@ -6,8 +6,12 @@ import Work from "./Work";
 import Testimonials from "./Testimonials";
 import QuestionAnswer from "./QuestionAnswer";
 import News from "./News";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Banner />

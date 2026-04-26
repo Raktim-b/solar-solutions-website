@@ -5,10 +5,15 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SubTitle = ({ subtitle = [], className = "" }) => {
+const SubTitle = ({
+  subtitle = [],
+  className = "",
+  animateOnScroll = true,
+}) => {
   const rightRef = useRef([]);
 
   useGSAP(() => {
+    if (!animateOnScroll) return;
     if (window.innerWidth < 768) return;
     if (!rightRef.current.length) return;
 
@@ -23,13 +28,13 @@ const SubTitle = ({ subtitle = [], className = "" }) => {
         y: 0,
         opacity: 1,
         filter: "blur(0px)",
-        stagger: 0.6,
+        stagger: 0.3,
         ease: "power3.out",
+        duration: 0.8,
         scrollTrigger: {
           trigger: rightRef.current[0].parentElement,
-          start: "top 80%",
-          end: "+=600",
-          scrub: 2,
+          start: "top 60%",
+          toggleActions: "play none none reverse", 
         },
       },
     );

@@ -65,8 +65,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`py-3 navbar fixed z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-white" : "bg-transparent"
+      className={` navbar fixed z-50 w-full transition-all duration-300 ${
+        scrolled ? "bg-white py-3" : "bg-transparent py-6"
       }`}
     >
       <Container>
@@ -78,7 +78,7 @@ const Navbar = () => {
           <div className="nav-logo max-w-12 relative z-2">
             <Link to="/" className="w-full h-full">
               <img
-                src={"Images/Home/Logo.png"}
+                src={"/Images/Logo.png"}
                 alt="logo"
                 className="w-full h-full object-cover"
               />

@@ -2,8 +2,37 @@ import Container from "../../Components/Container/Container";
 import SubTitle from "../../Services/Title/SubTitle";
 import PriTitle from "../../Services/Title/PriTitle";
 import ServiceAccordian from "../../Services/Accordian/ServiceAccordian";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ServiceSec = () => {
+  const AccorContainerRef = useRef(null);
+  useEffect(() => {
+    const el = AccorContainerRef.current;
+
+    gsap.fromTo(
+      el,
+      {
+        y: 150,
+        opacity: 0,
+        filter: "blur(8px)",
+      },
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1,
+        stagger: 0.25,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 40%",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+  }, []);
   const isMobile = window.innerWidth < 768;
 
   return (
@@ -59,7 +88,9 @@ const ServiceSec = () => {
         </div>
 
         {/* Service Cards */}
-        <ServiceAccordian />
+        <div ref={AccorContainerRef}>
+          <ServiceAccordian />
+        </div>
       </Container>
     </section>
   );

@@ -5,6 +5,7 @@ import Service from "../Pages/Service/Service";
 import Contact from "../Pages/Contact/Contact";
 import Project from "../Pages/Project/Project";
 import Blog from "../Pages/Blog/Blog";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "service",
         element: <Service />,
+      },
+      {
+        path: "service/:slug",
+        element: <ServiceDetails />,
       },
       {
         path: "contact",

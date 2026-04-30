@@ -1,10 +1,13 @@
 import React from "react";
+import Banner from "./Banner";
+import ProjectSec from "./ProjectSec";
 
 const Project = () => {
   return (
-    <div>
-      <h1 className="text-4xl text-amber-500">Project</h1>
-    </div>
+    <>
+      <Banner />
+      <ProjectSec />
+    </>
   );
 };
 

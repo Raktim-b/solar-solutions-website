@@ -64,16 +64,16 @@ const ServiceAbout = ({ details }) => {
         </p>
         <div
           ref={imageContainerRef}
-          className="flex gap-5 my-15 w-full md:w-3/4 mx-auto"
+          className="flex gap-5 my-15 w-full md:w-5/6 mx-auto"
         >
-          <div className="w-1/2 h-75 sm:h-100 md:h-125">
+          <div className="w-1/2 h-75 sm:h-100 md:h-145">
             <img
               src={imgSrc}
               alt={title}
               className="w-full rounded-lg h-full object-cover"
             />
           </div>
-          <div className="w-1/2 h-75 sm:h-100 md:h-125">
+          <div className="w-1/2 h-75 sm:h-100 md:h-145">
             <img
               src={imgSrc2}
               alt={title}
@@ -97,7 +97,7 @@ const ServiceAbout = ({ details }) => {
         <p className="text-base sm:text-lg text-black font-medium my-10">
           {subDescription}
         </p>
-        <div>
+        <div className="ml-5">
           {features.map((item, index) => (
             <li
               key={index}

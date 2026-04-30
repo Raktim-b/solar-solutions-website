@@ -158,7 +158,7 @@ const Service = () => {
           ))}
         </div>
         <div className="flex justify-center md:justify-end mt-10 md:mt-20">
-          <SecondaryButton content="Learn more" path="/service" />
+          <SecondaryButton content="Learn more" path="/service" className="bg-gray-300"/>
         </div>
       </Container>
     </section>

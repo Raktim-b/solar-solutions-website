@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-const SecondaryButton = ({ content, className, path }) => {
+const SecondaryButton = ({ content, className, path, onClick }) => {
   const navigate = useNavigate();
-
+  const handleClick = () => {
+    if (onClick) {
+      onClick(); // ✅ use custom click
+    } else if (path) {
+      navigate(path); // ✅ fallback navigation
+    }
+  };
   return (
     <button
-      onClick={() => navigate(path)}
+      onClick={handleClick}
       className={`flex items-center cursor-pointer gap-3 md:gap-4 bg-[#EDEDED] text-black rounded-lg py-1 md:py-1.25 pl-1 md:pl-1.5 pr-4 md:pr-6 group transition ${className}`}
     >
       {/* Icon Box */}

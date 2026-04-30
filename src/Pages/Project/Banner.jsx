@@ -1,10 +1,10 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import React from "react";
 import Container from "../../Components/Container/Container";
 import MainTitle from "../../Services/Title/MainTitle";
-import SecondaryButton from "../../Components/Buttons/SecondaryButton";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useRef } from "react";
-
+import SecondaryButton from "../../Components/Buttons/SecondaryButton";
 const Banner = () => {
   const bannerRef = useRef(null);
   useGSAP(() => {
@@ -34,31 +34,26 @@ const Banner = () => {
   return (
     <section
       ref={bannerRef}
-      className="banner-sec sticky top-0 min-h-screen flex items-end  pb-20 md:pb-10 z-8"
+      className="project-banner-sec sticky top-0 min-h-screen flex items-end pb-20 md:pb-10 z-8"
     >
       <Container>
         <div className="grid lg:grid-cols-[1fr_auto] items-center gap-7.5 ">
-          <div className="max-w-250 ">
+          <div className="max-w-210">
             <MainTitle
               className="text-white"
-              maintitle={[
-                <>Solar Solutions for </>,
-                <>
-                  Modern <span className="text-green-500">Living</span>
-                </>,
-              ]}
+              maintitle={["Completed Projects"]}
             />
-
             <p className="text-[16px]/[22px] md:text-lg/[26px] lg:text-xl/[30px] text-[#f8f5ec] font-medium pt-5 relative z-2">
-              Our solar solutions deliver reliable, clean energy while reducing
-              electricity costs. We help homes and businesses move toward a
-              sustainable future with efficient and long-lasting solar
-              technology.
+              Explore our completed solar projects delivering reliable,
+              cost-effective energy solutions for residential, commercial, and
+              industrial needs.
             </p>
           </div>
-
           <div className="lg:self-end banner-btn relative z-11">
-            <SecondaryButton content="Contact Now" path="/contact" />
+            <SecondaryButton
+              content={"Get Free Consultation"}
+              path="/contact"
+            />
           </div>
         </div>
       </Container>

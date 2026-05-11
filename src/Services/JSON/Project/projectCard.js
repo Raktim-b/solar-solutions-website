@@ -1,11 +1,12 @@
 export const projectCard = [
   {
-    type: "Commercial",
-    name: "GreenMall Solar Grid",
-    imgSrc: "/Images/Projects/work-img5.jpg",
-    location: "Bangalore, India",
+    type: "Domestic",
+    name: "EcoHome Rooftop System",
+    imgSrc: "/Images/Projects/work-img7.jpg",
+    location: "Chennai, India",
     date: "2025",
   },
+
   {
     type: "Industrial",
     name: "PowerMax Factory Setup",
@@ -14,10 +15,10 @@ export const projectCard = [
     date: "2024",
   },
   {
-    type: "Domestic",
-    name: "EcoHome Rooftop System",
-    imgSrc: "/Images/Projects/work-img7.jpg",
-    location: "Chennai, India",
+    type: "Commercial",
+    name: "GreenMall Solar Grid",
+    imgSrc: "/Images/Projects/work-img5.jpg",
+    location: "Bangalore, India",
     date: "2025",
   },
   {

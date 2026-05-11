@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Container from "../../Components/Container/Container";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
 import { projectCard } from "../../Services/JSON/Project/projectCard";
 import CardTitle from "../../Services/Title/CardTitle";
 import SecondaryButton from "../../Components/Buttons/SecondaryButton";
-import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,42 +12,62 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ProjectSec = () => {
   const imageContainerRef = useRef(null);
+
   const isMobile = window.innerWidth < 768;
-  const [visibleCount, setVisibleCount] = useState(6);
+
+  const [visibleCount, setVisibleCount] = useState(
+    window.innerWidth < 640 ? 4 : 6,
+  );
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filters = ["All", "Domestic", "Commercial", "Industrial"];
+
+  /* FILTERED DATA */
+  const filteredProjects =
+    activeFilter === "All"
+      ? projectCard
+      : projectCard.filter((item) => item.type === activeFilter);
+
+  /* GSAP ANIMATION */
+
   useEffect(() => {
     if (window.innerWidth < 768) return;
 
-    const rows = imageContainerRef.current.querySelectorAll(".project-row");
+    const ctx = gsap.context(() => {
+      gsap.set(".project-card", {
+        y: 80,
+        opacity: 0,
+        filter: "blur(6px)",
+      });
 
-    rows.forEach((row) => {
-      const cards = row.querySelectorAll(".project-card");
+      ScrollTrigger.batch(".project-card", {
+        start: "top 85%",
 
-      gsap.fromTo(
-        cards,
-        {
-          y: 100,
-          opacity: 0,
-          filter: "blur(6px)",
+        onEnter: (batch) => {
+          gsap.to(batch, {
+            y: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            duration: 1,
+            stagger: 0.15,
+            ease: "power3.out",
+            overwrite: true,
+          });
         },
-        {
-          y: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          duration: 1,
-          stagger: 0.35,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: row,
-            start: "top 35%",
-            toggleActions: "play none none reverse",
-          },
-        },
-      );
-    });
-  }, []);
+
+        once: true,
+      });
+
+      ScrollTrigger.refresh();
+    }, imageContainerRef);
+
+    return () => ctx.revert();
+  }, [activeFilter]);
+
   return (
     <section className="bg-[#faf8f4] py-10 sm:py-30 overflow-hidden min-h-auto relative z-10">
       <Container>
+        {/* HEADING */}
         <div className="mb-8 sm:mb-16 md:mb-20">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-5 md:gap-10">
             {/* LEFT */}
@@ -92,11 +111,34 @@ const ProjectSec = () => {
             </div>
           </div>
         </div>
-        <div ref={imageContainerRef} className="flex flex-col gap-6">
+
+        {/* FILTER BUTTONS */}
+        <div className="flex flex-wrap gap-2 sm:gap-3 mb-10">
+          {filters.map((filter, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setActiveFilter(filter);
+                setVisibleCount(window.innerWidth < 640 ? 4 : 6);
+              }}
+              className={`px-3 sm:px-4 py-1.5 text-sm sm:text-base text-gray-800 transition-all duration-300 border-2 cursor-pointer
+                ${
+                  activeFilter === filter
+                    ? " border-gray-600 bg-green-500 font-semibold"
+                    : " border-gray-600 hover:bg-green-500 font-semibold"
+                }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+
+        {/* PROJECTS */}
+        <div ref={imageContainerRef} className="flex flex-col gap-4">
           {Array.from(
             { length: Math.ceil(visibleCount / 2) },
             (_, rowIndex) => {
-              const rowItems = projectCard.slice(
+              const rowItems = filteredProjects.slice(
                 rowIndex * 2,
                 rowIndex * 2 + 2,
               );
@@ -104,39 +146,51 @@ const ProjectSec = () => {
               return (
                 <div
                   key={rowIndex}
-                  className="project-row grid grid-cols-1 sm:grid-cols-2 gap-6"
+                  className="project-row grid grid-cols-1 sm:grid-cols-2 gap-4"
                 >
                   {rowItems.map((item, index) => (
                     <div
                       key={index}
-                      className="group project-card cursor-pointer mb-2"
+                      className="project-card group relative overflow-hidden cursor-pointer"
                     >
                       {/* IMAGE */}
-                      <div className="relative overflow-hidden group">
+                      <div className="relative h-80 sm:h-160 overflow-hidden">
                         <img
                           src={item.imgSrc}
                           alt={item.name}
-                          className="w-full h-62.5 sm:h-110 object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
 
-                        {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition duration-500"></div>
-                      </div>
+                        {/* OVERLAY */}
+                        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.70)_0%,rgba(0,0,0,0.12)_35%,rgba(0,0,0,0.08)_55%,rgba(0,0,0,0.75)_100%)]"></div>
 
-                      {/* CONTENT */}
-                      <div className="flex justify-between items-center mt-3">
-                        <CardTitle
-                          cardtitle={item.name}
-                          className="text-gray-800"
-                        />
-                        <span className="text-xs sm:text-sm font-medium text-gray-500">
-                          {item.date}
-                        </span>
-                      </div>
+                        {/* TOP CONTENT */}
+                        <div className="absolute top-6 left-6 z-10 max-w-65">
+                          {/* TYPE */}
+                          <p className="text-[11px] sm:text-xs text-white/80 font-medium mb-2">
+                            {item.type}
+                          </p>
 
-                      <p className="text-xs sm:text-sm font-medium text-gray-400 mt-1">
-                        {item.location}
-                      </p>
+                          {/* NAME */}
+                          <CardTitle
+                            cardtitle={item.name}
+                            className="text-white"
+                          />
+                        </div>
+
+                        {/* BOTTOM CONTENT */}
+                        <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between">
+                          {/* LOCATION */}
+                          <p className="text-white/90 text-xs sm:text-sm font-medium">
+                            {item.location}
+                          </p>
+
+                          {/* DATE */}
+                          <span className="text-white/90 text-xs sm:text-sm font-medium">
+                            {item.date}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -144,10 +198,12 @@ const ProjectSec = () => {
             },
           )}
         </div>
-        {visibleCount < projectCard.length && (
+
+        {/* LOAD MORE */}
+        {visibleCount < filteredProjects.length && (
           <div className="flex justify-center mt-10">
             <SecondaryButton
-              onClick={() => setVisibleCount(projectCard.length)}
+              onClick={() => setVisibleCount(filteredProjects.length)}
               className="bg-gray-300"
               content="Load More"
             />

@@ -1,10 +1,10 @@
 export const stats = [
   {
-    number: "25+",
+    number: "50+",
     text: "Successful Projects",
   },
   {
-    number: "5+",
+    number: "3+",
     text: "Years of Expertise",
   },
   {

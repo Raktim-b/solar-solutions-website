@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Container from "../../Components/Container/Container";
 import PriTitle from "../../Services/Title/PriTitle";
 import SubTitle from "../../Services/Title/SubTitle";
@@ -149,49 +150,48 @@ const ProjectSec = () => {
                   className="project-row grid grid-cols-1 sm:grid-cols-2 gap-4"
                 >
                   {rowItems.map((item, index) => (
-                    <div
+                    <Link
+                      to={`/projects/${item.slug}`}
                       key={index}
-                      className="project-card group relative overflow-hidden cursor-pointer"
+                      className="block"
                     >
-                      {/* IMAGE */}
-                      <div className="relative h-80 sm:h-160 overflow-hidden">
-                        <img
-                          src={item.imgSrc}
-                          alt={item.name}
-                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        />
-
-                        {/* OVERLAY */}
-                        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.70)_0%,rgba(0,0,0,0.12)_35%,rgba(0,0,0,0.08)_55%,rgba(0,0,0,0.75)_100%)]"></div>
-
-                        {/* TOP CONTENT */}
-                        <div className="absolute top-6 left-6 z-10 max-w-65">
-                          {/* TYPE */}
-                          <p className="text-[11px] sm:text-xs text-white/80 font-medium mb-2">
-                            {item.type}
-                          </p>
-
-                          {/* NAME */}
-                          <CardTitle
-                            cardtitle={item.name}
-                            className="text-white"
+                      <div className="project-card group relative overflow-hidden cursor-pointer">
+                        {/* IMAGE */}
+                        <div className="relative h-80 sm:h-160 overflow-hidden">
+                          <img
+                            src={item.imgSrc}
+                            alt={item.name}
+                            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                           />
-                        </div>
 
-                        {/* BOTTOM CONTENT */}
-                        <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between">
-                          {/* LOCATION */}
-                          <p className="text-white/90 text-xs sm:text-sm font-medium">
-                            {item.location}
-                          </p>
+                          {/* OVERLAY */}
+                          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.70)_0%,rgba(0,0,0,0.12)_35%,rgba(0,0,0,0.08)_55%,rgba(0,0,0,0.75)_100%)]"></div>
 
-                          {/* DATE */}
-                          <span className="text-white/90 text-xs sm:text-sm font-medium">
-                            {item.date}
-                          </span>
+                          {/* TOP CONTENT */}
+                          <div className="absolute top-6 left-6 z-10 max-w-65">
+                            <p className="text-[11px] sm:text-xs text-white/80 font-medium mb-2">
+                              {item.type}
+                            </p>
+
+                            <CardTitle
+                              cardtitle={item.name}
+                              className="text-white"
+                            />
+                          </div>
+
+                          {/* BOTTOM CONTENT */}
+                          <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between">
+                            <p className="text-white/90 text-xs sm:text-sm font-medium">
+                              {item.location}
+                            </p>
+
+                            <span className="text-white/90 text-xs sm:text-sm font-medium">
+                              {item.date}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               );
